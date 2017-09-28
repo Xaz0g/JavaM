@@ -1,0 +1,8 @@
+# Ignore .settings folder of Eclipse
+.settings/
+
+# Ignore .project file of Eclipse
+.project
+
+# Ignore Mavens target folder
+target/
