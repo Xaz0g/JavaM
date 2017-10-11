@@ -1,13 +1,13 @@
 package se.su.dsv.inte;
 
-public class MarieMap implements Map{
+public class MapEntity implements Map{
 	
 	int [][] map = new int[][] {}; 
 	
 	int height; // x = row
 	int width;  // y = column
 	
-	public MarieMap(int x,  int y) {
+	public MapEntity(int x, int y) {
 		if(x > 0 && y > 0){
 			this.height = x;
 			this.width = y;
