@@ -37,8 +37,8 @@ public class MarieVictorMap implements Map{
 	}
 	
 	public PlayerCharacter getPlayerCharacter() {
-		// TODO Auto-generated method stub
-		return null;
+		PlayerCharacter pChar = null;
+		return pChar;
 	}
 	
 	public void placeMapObject(PlayerCharacter mObject, int row, int column) {
