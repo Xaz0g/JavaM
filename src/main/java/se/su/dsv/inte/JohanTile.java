@@ -23,6 +23,9 @@ public class JohanTile implements Tile{
 	public boolean isOccupied() {
 		return player == null ? false : true; 
 	}
-	
-	//HÄMTA SPELARE osv?
+
+	public PlayerCharacter getPlayerCharacter() {
+		
+		return null;
+	}
 }

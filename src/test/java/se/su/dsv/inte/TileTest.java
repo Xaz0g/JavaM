@@ -24,4 +24,10 @@ public class TileTest {
 	public void testSetNullTerrain(){
 		Tile t = new JohanTile(null);
 	}
+	
+	@Test
+	public void testGetNullPlayer() {
+		Tile t = new JohanTile(grass);
+		
+	}
 }
