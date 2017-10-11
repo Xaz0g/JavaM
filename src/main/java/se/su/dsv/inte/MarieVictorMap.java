@@ -6,8 +6,15 @@ public class MarieVictorMap implements Map{
 	int width;  // y
 	
 	public MarieVictorMap(int x,  int y) {
-		this.height = x;
-		this.width = y;
+		if(x > 0 && y > 0){
+			this.height = x;
+			this.width = y;
+			
+		}else {
+			throw new IllegalArgumentException(); 
+		}
+		
+		
 		
 	}
 	
