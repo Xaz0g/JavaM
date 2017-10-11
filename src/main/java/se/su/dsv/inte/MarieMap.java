@@ -1,11 +1,13 @@
 package se.su.dsv.inte;
 
-public class MarieVictorMap implements Map{
+public class MarieMap implements Map{
 	
-	int height; // x
-	int width;  // y
+	int [][] map = new int[][] {}; 
 	
-	public MarieVictorMap(int x,  int y) {
+	int height; // x = row
+	int width;  // y = column
+	
+	public MarieMap(int x,  int y) {
 		if(x > 0 && y > 0){
 			this.height = x;
 			this.width = y;
@@ -27,8 +29,16 @@ public class MarieVictorMap implements Map{
 	}
 	
 	public Tile getTile(int row, int column) {
-		// TODO Auto-generated method stub
-		return null;
+		if(row > -1 && column > -1 && row < height && column < width) {
+			return null; 
+		} else if(row >= height && column >= width){
+			throw new IndexOutOfBoundsException();
+		
+		} else{
+			throw new IndexOutOfBoundsException();
+			
+		}
+	
 	}
 	
 	public void setTile(Tile tile, int row, int column) {
