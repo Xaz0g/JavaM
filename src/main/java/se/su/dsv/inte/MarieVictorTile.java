@@ -1,4 +1,7 @@
 package se.su.dsv.inte;
 
-public class MarieVictorTile {
+public class MarieVictorTile implements Tile{
+
+
+
 }
