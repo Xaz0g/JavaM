@@ -22,4 +22,8 @@ public class ContainerObject extends MapObject {
 		currentWeight = currentWeight + container.length;
 	}
 	
+	public int getWeight() {
+		return currentWeight;
+	}
+	
 }

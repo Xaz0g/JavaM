@@ -18,5 +18,12 @@ public class ContainerObjectTest {
 		ContainerObject validContainer = new ContainerObject(10);
 		assertNotNull(validContainer);
 	}
+	
+	@Test
+	public void testLegalWeight(){
+		assertEquals(10, validContainer.getWeight());
+	}
+	
+	//addItem --> akta Integer.max osv.
 
 }
