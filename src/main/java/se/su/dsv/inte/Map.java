@@ -8,7 +8,7 @@ public interface Map {
 	
 	public Tile getTile(int row, int column);
 	
-	public void setTile(int row, int column);
+	public void setTile(Tile tile, int row, int column);
 	
 	public PlayerCharacter getPlayerCharacter();
 	
