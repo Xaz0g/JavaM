@@ -1,5 +1,7 @@
 package se.su.dsv.inte;
 
+import static se.su.dsv.inte.Terrain.Grass;
+
 public class MapEntity implements Map{
 	
 	int height; // x = row
@@ -45,7 +47,9 @@ public class MapEntity implements Map{
 	
 	public void setTile(int row, int column) {
 
-		
+		Tile t = new TileEntity(Grass);
+
+		map[row][column] = t;
 		
 		
 	}

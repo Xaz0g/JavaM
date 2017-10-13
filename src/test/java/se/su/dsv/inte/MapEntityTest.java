@@ -75,7 +75,7 @@ public class MapEntityTest {
 	public void validSetTilePosition() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
-		m.setTile(t, VALID_ROW, VALID_COLUMN);
+		m.setTile(VALID_ROW, VALID_COLUMN);
 		assertEquals(t,m.getTile(VALID_ROW,VALID_COLUMN));
 	}
 
@@ -83,7 +83,7 @@ public class MapEntityTest {
 	public void invalidSetTileRowNegative() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
-		m.setTile(t, NEGATIVE, VALID_COLUMN);
+		m.setTile(NEGATIVE, VALID_COLUMN);
 
 	}
 
@@ -91,7 +91,7 @@ public class MapEntityTest {
 	public void invalidSetTileColumnNegative() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
-		m.setTile(t, VALID_ROW, NEGATIVE);
+		m.setTile(VALID_ROW, NEGATIVE);
 
 	}
 
@@ -99,7 +99,7 @@ public class MapEntityTest {
 	public void invalidSetTileRowMax() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
-		m.setTile(t, m.getHeight(), VALID_COLUMN);
+		m.setTile(m.getHeight(), VALID_COLUMN);
 
 	}
 
@@ -107,7 +107,7 @@ public class MapEntityTest {
 	public void invalidSetTileColumnMax() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
-		m.setTile(t, VALID_ROW, m.getWidth());
+		m.setTile(VALID_ROW, m.getWidth());
 
 	}
 
