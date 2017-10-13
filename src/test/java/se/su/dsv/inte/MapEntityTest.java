@@ -70,6 +70,8 @@ public class MapEntityTest {
 		assertEquals(null,m.getTile(VALID_ROW,m.getWidth()));
 	}
 
+
+
 	// Detta test går igenom då det inte finns något på någon position och båda är null
 	@Test
 	public void validSetTilePosition() {
@@ -108,7 +110,6 @@ public class MapEntityTest {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
 		m.setTile(VALID_ROW, m.getWidth());
-
 	}
 
 //	@Test
