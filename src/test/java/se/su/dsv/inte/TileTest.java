@@ -46,4 +46,11 @@ public class TileTest {
 		t.setPlayerCharacter(legalPlayer);
 		assertEquals(legalPlayer,t.getMapObject());
 	}
+	
+	@Test 
+	public void testContainsValidPlayer() {
+		Tile t = new JohanTile(grass);
+		t.setPlayerCharacter(legalPlayer);
+		assertTrue(t.containsPlayer());
+	}
 }

@@ -32,4 +32,11 @@ public class JohanTile implements Tile{
 	public void setPlayerCharacter(PlayerCharacter p) {
 		mO = p;
 	}
+
+	public boolean containsPlayer() {
+		if(isOccupied() && mO instanceof PlayerCharacter)
+		return true;
+		
+		return false;
+	}
 }
