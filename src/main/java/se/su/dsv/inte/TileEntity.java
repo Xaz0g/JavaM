@@ -2,7 +2,7 @@ package se.su.dsv.inte;
 
 public class TileEntity implements Tile{
 	private Terrain t;
-	private PlayerCharacter player = null;
+	private MapObject mO = null;
 	
 	public TileEntity(Terrain t){
 		setTerrain(t);
@@ -21,15 +21,22 @@ public class TileEntity implements Tile{
 	}
 
 	public boolean isOccupied() {
-		return player == null ? false : true; 
+		return mO == null ? false : true; 
 	}
 
-	public PlayerCharacter getPlayerCharacter() {
+	public MapObject getMapObject() {
 		
-		return player;
+		return mO;
 	}
 
 	public void setPlayerCharacter(PlayerCharacter p) {
-		player = p;
+		mO = p;
+	}
+
+	public boolean containsPlayer() {
+		if(isOccupied() && mO instanceof PlayerCharacter)
+		return true;
+		
+		return false;
 	}
 }
