@@ -34,7 +34,7 @@ public class MapEntity implements Map{
 	
 	public Tile getTile(int row, int column) {
 		if(row > -1 && column > -1 && row < height && column < width) {
-			return null; 
+			return map[row][column];
 		} else if(row >= height && column >= width){
 			throw new IndexOutOfBoundsException();
 		
@@ -45,11 +45,9 @@ public class MapEntity implements Map{
 	
 	}
 	
-	public void setTile(int row, int column) {
+	public void setTile(Tile tile, int row, int column) {
 
-		Tile t = new TileEntity(Grass);
-
-		map[row][column] = t;
+		map[row][column] = tile;
 		
 		
 		
