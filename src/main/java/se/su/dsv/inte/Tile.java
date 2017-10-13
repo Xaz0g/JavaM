@@ -5,5 +5,6 @@ public interface Tile {
 	Terrain getTerrain();
 	boolean isOccupied();
 	PlayerCharacter getPlayerCharacter();
+	void setPlayerCharacter(PlayerCharacter p);
 	
 }
