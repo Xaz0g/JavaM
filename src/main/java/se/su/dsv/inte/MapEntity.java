@@ -43,8 +43,8 @@ public class MapEntity implements Map{
 	
 	}
 	
-	public void setTile(Tile tile, int row, int column) {
-		// TODO Auto-generated method stub
+	public void setTile(int row, int column) {
+
 		
 		
 		
