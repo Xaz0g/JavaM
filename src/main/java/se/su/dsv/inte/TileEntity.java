@@ -1,10 +1,10 @@
 package se.su.dsv.inte;
 
-public class JohanTile implements Tile{
+public class TileEntity implements Tile{
 	private Terrain t;
 	private PlayerCharacter player = null;
 	
-	public JohanTile(Terrain t){
+	public TileEntity(Terrain t){
 		setTerrain(t);
 	}
 	
