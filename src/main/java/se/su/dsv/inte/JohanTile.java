@@ -2,7 +2,7 @@ package se.su.dsv.inte;
 
 public class JohanTile implements Tile{
 	private Terrain t;
-	private PlayerCharacter player = null;
+	private MapObject mO = null;
 	
 	public JohanTile(Terrain t){
 		setTerrain(t);
@@ -21,11 +21,22 @@ public class JohanTile implements Tile{
 	}
 
 	public boolean isOccupied() {
-		return player == null ? false : true; 
+		return mO == null ? false : true; 
 	}
 
-	public PlayerCharacter getPlayerCharacter() {
+	public MapObject getMapObject() {
 		
-		return null;
+		return mO;
+	}
+
+	public void setPlayerCharacter(PlayerCharacter p) {
+		mO = p;
+	}
+
+	public boolean containsPlayer() {
+		if(isOccupied() && mO instanceof PlayerCharacter)
+		return true;
+		
+		return false;
 	}
 }
