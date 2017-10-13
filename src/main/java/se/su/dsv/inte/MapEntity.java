@@ -2,10 +2,10 @@ package se.su.dsv.inte;
 
 public class MapEntity implements Map{
 	
-	int [][] map = new int[][] {}; 
-	
 	int height; // x = row
 	int width;  // y = column
+	
+	Tile [][] map = new Tile[height][width]; 
 	
 	public MapEntity(int x, int y) {
 		if(x > 0 && y > 0){
@@ -43,6 +43,8 @@ public class MapEntity implements Map{
 	
 	public void setTile(Tile tile, int row, int column) {
 		// TODO Auto-generated method stub
+		
+		
 		
 	}
 	
