@@ -10,24 +10,24 @@ public class TileTest {
 	
 	@Test
 	public void testIsNotOccupied() {
-		Tile t = new JohanTile(grass);
+		Tile t = new TileEntity(grass);
 		assertEquals(false, t.isOccupied());
 	}
 	
 	@Test
 	public void testSetLegalTerrain() {
-		Tile t = new JohanTile(grass);
+		Tile t = new TileEntity(grass);
 		assertNotNull(t.getTerrain());
 	}
 	
 	@Test(expected = NullPointerException.class)
 	public void testSetNullTerrain(){
-		Tile t = new JohanTile(null);
+		Tile t = new TileEntity(null);
 	}
 	
 	@Test
 	public void testGetNullPlayer() {
-		Tile t = new JohanTile(grass);
+		Tile t = new TileEntity(grass);
 		
 	}
 }
