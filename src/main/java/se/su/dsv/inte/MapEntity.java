@@ -1,9 +1,13 @@
 package se.su.dsv.inte;
 
+import static se.su.dsv.inte.Terrain.Grass;
+
 public class MapEntity implements Map{
 	
 	int height; // x = row
 	int width;  // y = column
+
+	Tile [][] map;
 	
 	Tile [][] map = new Tile[height][width]; 
 	
@@ -11,7 +15,9 @@ public class MapEntity implements Map{
 		if(x > 0 && y > 0){
 			this.height = x;
 			this.width = y;
-			
+
+			map = new Tile[height][width];
+
 		}else {
 			throw new IllegalArgumentException(); 
 		}
@@ -30,7 +36,7 @@ public class MapEntity implements Map{
 	
 	public Tile getTile(int row, int column) {
 		if(row > -1 && column > -1 && row < height && column < width) {
-			return null; 
+			return map[row][column];
 		} else if(row >= height && column >= width){
 			throw new IndexOutOfBoundsException();
 		
@@ -42,7 +48,9 @@ public class MapEntity implements Map{
 	}
 	
 	public void setTile(Tile tile, int row, int column) {
-		// TODO Auto-generated method stub
+
+		map[row][column] = tile;
+		
 		
 		
 		

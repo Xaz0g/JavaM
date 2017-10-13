@@ -26,6 +26,10 @@ public class TileEntity implements Tile{
 
 	public PlayerCharacter getPlayerCharacter() {
 		
-		return null;
+		return player;
+	}
+
+	public void setPlayerCharacter(PlayerCharacter p) {
+		player = p;
 	}
 }

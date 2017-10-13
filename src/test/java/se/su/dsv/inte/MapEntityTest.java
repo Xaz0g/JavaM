@@ -70,13 +70,15 @@ public class MapEntityTest {
 		assertEquals(null,m.getTile(VALID_ROW,m.getWidth()));
 	}
 
+
+
 	// Detta test går igenom då det inte finns något på någon position och båda är null
 	@Test
 	public void validSetTilePosition() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
-		m.setTile(t, VALID_ROW, VALID_COLUMN);
-		assertEquals(t,m.getTile(VALID_ROW,VALID_COLUMN));
+		m.setTile(t, 2,2);
+		assertEquals(t,m.getTile(2,2));
 	}
 
 	@Test(expected = IndexOutOfBoundsException.class)
@@ -108,16 +110,15 @@ public class MapEntityTest {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		t = new TileEntity(Terrain.Grass);
 		m.setTile(t, VALID_ROW, m.getWidth());
-
 	}
 
-	@Test 
-	public void getPlayerCharacterNotNull() {
-		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
-		//		PlayerCharacter pChar = new AxelPlayerCharacter(); 
-		//		m.placeMapObject(pChar, VALID_ROW, VALID_COLUMN);
-		assertNotNull(m.getPlayerCharacter());
-	}
+//	@Test
+//	public void getPlayerCharacterNotNull() {
+//		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
+//				PlayerCharacter pChar = new PlayerCharacter("Victor", 200.0, 1);
+//				m.placeMapObject(pChar, VALID_ROW, VALID_COLUMN);
+//		assertNotNull(m.getPlayerCharacter());
+//	}
 
 
 }
