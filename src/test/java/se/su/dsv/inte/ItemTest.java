@@ -27,11 +27,6 @@ public class ItemTest {
 
 	// 2 weight tests
 
-//	@Test(expected = IndexOutOfBoundsException.class)
-//	public void WeightZero() {
-//		i = new Weapon(validName, zeroWeight, validAttack, validSpeed, validArmor);
-//	}
-
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void WeightExceeded() {
 		i = new Weapon(validName, exceededWeight, validAttack, validVelocity, validArmor);
@@ -55,6 +50,7 @@ public class ItemTest {
 	}
 
 	// 2 armor tests
+
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void armorNegative() {
 		i = new Weapon(validName, validWeight, validAttack, validVelocity, negativeArmor);
@@ -66,6 +62,7 @@ public class ItemTest {
 	}
 
 	// 3 name tests
+
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void nullName() {
 		i = new Weapon(nullName, validWeight, validAttack, validVelocity, validArmor);
@@ -83,18 +80,13 @@ public class ItemTest {
 
 	// 2 attack tests
 
-//	@Test
-//	public void validAttackZero(){
-//		i = new Weapon(validName, validWeight, validAttack, validVelocity, validArmor);
-//	}
-
 	@Test
 	public void attackExceeded(){
-		i = new Weapon(validName, validWeight, validAttack, validVelocity, validArmor);
+		i = new Weapon(validName, validWeight, exceededAttack, validVelocity, validArmor);
 	}
 
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void attackNegative(){
-		i = new Weapon(validName, validWeight, validAttack, validVelocity, validArmor);
+		i = new Weapon(validName, validWeight, negativeAttack, validVelocity, validArmor);
 	}
 }
