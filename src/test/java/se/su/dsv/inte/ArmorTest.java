@@ -16,7 +16,7 @@ public class ArmorTest {
 	
 	@Test
 	public void validInput() {
-		i = new Armor(validName, validWeight, validAttack, validVelocity, validArmor);
+		i = new Cosmetic(validName, validWeight, validAttack, validVelocity, validArmor);
 		assertEquals(validWeight, i.getWeight(),0.001);
 		assertEquals(validArmor, i.getArmorValue(),0.001);
 		assertEquals(validVelocity, i.getVelocity(), 0.001);
@@ -29,65 +29,65 @@ public class ArmorTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void WeightExceeded() {
-		i = new Armor(validName, exceededWeight, validAttack, validVelocity, validArmor);
+		i = new Cosmetic(validName, exceededWeight, validAttack, validVelocity, validArmor);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void WeightNegative() {
-		i = new Armor(validName, negativeWeight, validAttack, validVelocity, validArmor);
+		i = new Cosmetic(validName, negativeWeight, validAttack, validVelocity, validArmor);
 	}
 
 	// 2 speed tests
 
 	@Test (expected = IllegalArgumentException.class)
 	public void velocityNegative() {
-		i = new Armor(validName, validWeight, validAttack, negativeVelocity, validArmor);
+		i = new Cosmetic(validName, validWeight, validAttack, negativeVelocity, validArmor);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void speedExceeded() {
-		i = new Armor(validName, validWeight, validAttack, exceededVelocity, validArmor);
+		i = new Cosmetic(validName, validWeight, validAttack, exceededVelocity, validArmor);
 	}
 
 	// 2 armor tests
 
 	@Test (expected = IllegalArgumentException.class)
 	public void armorNegative() {
-		i = new Armor(validName, validWeight, validAttack, validVelocity, negativeArmor);
+		i = new Cosmetic(validName, validWeight, validAttack, validVelocity, negativeArmor);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void armorExceeded() {
-		i = new Armor(validName, validWeight, validAttack, validVelocity, exceededArmor);
+		i = new Cosmetic(validName, validWeight, validAttack, validVelocity, exceededArmor);
 	}
 
 	// 3 name tests
 
 	@Test (expected = NullPointerException.class)
 	public void nullName() {
-		i = new Armor(nullName, validWeight, validAttack, validVelocity, validArmor);
+		i = new Cosmetic(nullName, validWeight, validAttack, validVelocity, validArmor);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void shortName() {
-		i = new Armor(shortName, validWeight, validAttack, validVelocity, validArmor);
+		i = new Cosmetic(shortName, validWeight, validAttack, validVelocity, validArmor);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void longName() {
-		i = new Armor(longName, validWeight, validAttack, validVelocity, validArmor);
+		i = new Cosmetic(longName, validWeight, validAttack, validVelocity, validArmor);
 	}
 
 	// 2 attack tests
 
 	@Test(expected = IllegalArgumentException.class)
 	public void attackExceeded(){
-		i = new Armor(validName, validWeight, exceededAttack, validVelocity, validArmor);
+		i = new Cosmetic(validName, validWeight, exceededAttack, validVelocity, validArmor);
 	}
 
 	@Test (expected = IllegalArgumentException.class)
 	public void attackNegative(){
-		i = new Armor(validName, validWeight, negativeAttack, validVelocity, validArmor);
+		i = new Cosmetic(validName, validWeight, negativeAttack, validVelocity, validArmor);
 	}
 
 }
