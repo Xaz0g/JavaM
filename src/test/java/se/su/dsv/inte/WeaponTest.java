@@ -3,7 +3,7 @@ package se.su.dsv.inte;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-public class ItemTest {
+public class WeaponTest {
 
 	private Item i;
 
