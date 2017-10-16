@@ -2,12 +2,11 @@ package se.su.dsv.inte;
 
 public class PlayerCharacter extends MapObject{
 	
-	private String name;
 	private double maxHealth, currentHealth;
 	private int speed;
 	
 	public PlayerCharacter(String name, double startingHealth, int startingSpeed) {
-		this.name = name;
+		super(name);
 		this.maxHealth = startingHealth;
 		this.currentHealth = this.maxHealth;
 		this.speed = startingSpeed;
