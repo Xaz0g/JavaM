@@ -2,6 +2,7 @@ package se.su.dsv.inte;
 
 public class Weapon extends Item {
 
+
 	public Weapon(String name, double weight, double attack, double velocity, double armorValue) {
 		super(name, weight, attack, velocity, armorValue);
 		// TODO Auto-generated constructor stub
@@ -9,8 +10,7 @@ public class Weapon extends Item {
 
 	@Override
 	public int getWeight() {
-		// TODO Auto-generated method stub
-		return 0;
+
 	}
 
 	@Override

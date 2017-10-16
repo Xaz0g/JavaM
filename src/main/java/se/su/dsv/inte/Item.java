@@ -11,7 +11,10 @@ public abstract class Item {
 
 	public Item(String name, double weight, double attack, double velocity, double armorValue) {
 
-		if(name.length() < 4 || name.length() > 10) {this.name = name;}
+		if(name == null){
+			throw new NullPointerException();
+		}
+		if(name.length() > 3 && name.length() < 11) {this.name = name;}
 			else {throw new IllegalArgumentException(); }
 		
 		if(weight > 0 && weight <= 200){this.weight = weight;}
@@ -29,14 +32,24 @@ public abstract class Item {
 
 	
 
-	public abstract int getWeight();
+	public double getWeight(){
+		return weight;
+	};
 
-	public abstract String getName();
+	public String getName(){
+		return name;
+	};
 
-	public abstract double getVelocity();
+	public double getVelocity(){
+		return velocity;
+	};
 
-	public abstract double getAttack();
+	public double getAttack(){
+		return attack;
+	};
 
-	public abstract double getArmorValue();
+	public double getArmorValue(){
+		return armorValue;
+	};
 
 }

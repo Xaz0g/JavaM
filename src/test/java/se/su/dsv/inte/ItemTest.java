@@ -8,7 +8,7 @@ public class ItemTest {
 	private Item i;
 
 	private String validName = "name", longName = "namenamename", shortName = "na", nullName = null;
-	private double validWeight = 10, exceededWeight = 1000, negativeWeight = -1;
+	private double validWeight = 10.0, exceededWeight = 1000, negativeWeight = -1;
 	private double validVelocity = 1, negativeVelocity = -1, exceededVelocity = 5.01; // 5.00 är exceededspeed, 5.01 testar så man inte kan vara mer än fem gånger snabbare än default
 	private double validArmor = 5, negativeArmor = -1, exceededArmor = 101;
 	private double validAttack = 3, negativeAttack = -1, exceededAttack = 101;
@@ -64,7 +64,7 @@ public class ItemTest {
 
 	// 3 name tests
 
-	@Test (expected = IllegalArgumentException.class)
+	@Test (expected = NullPointerException.class)
 	public void nullName() {
 		i = new Weapon(nullName, validWeight, validAttack, validVelocity, validArmor);
 	}
