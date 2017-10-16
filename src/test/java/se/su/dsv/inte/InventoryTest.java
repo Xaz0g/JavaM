@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ContainerObjectTest {
+public class InventoryTest {
 	
 	private Inventory validContainer = new Inventory(10);
 
