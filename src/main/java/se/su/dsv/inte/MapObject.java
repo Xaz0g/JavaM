@@ -44,4 +44,14 @@ public class MapObject {
 		}
 		this.currentHealth = newCurrentHealth;
 	}
+	
+	public void modifyCurrentHealth(double changeBy) {
+		currentHealth += changeBy;
+		
+		if(currentHealth < 0) {
+			currentHealth = 0;
+		} else if(currentHealth > maxHealth) {
+			currentHealth = maxHealth;
+		}
+	}
 }

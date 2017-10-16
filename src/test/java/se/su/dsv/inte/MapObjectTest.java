@@ -85,9 +85,15 @@ public class MapObjectTest {
 	}
 	
 	@Test
-	public void testModifyCurrentHealthInRange() {
-		o.modifyCurrentHealth(-50);
-		assertEquals(50,o.getCurrentHealth(),0.0001);
+	public void testModifyCurrentHealthBelowZero() {
+		o.modifyCurrentHealth(-110);
+		assertEquals(0,o.getCurrentHealth(),0.0001);
+	}
+	
+	@Test
+	public void testModifyCurrentHealthAboveMax() {
+		o.modifyCurrentHealth(1);
+		assertEquals(o.getMaxHealth(),o.getCurrentHealth(),0.0001);
 	}
 	
 }
