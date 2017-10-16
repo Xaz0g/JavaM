@@ -11,6 +11,7 @@ public class ItemTest {
 	private int zeroWeight = 0, validWeight = 10, maxWeight = 1000;
 	private int validSpeed = 1, negativeSpeed = -1, maxSpeed = 100;
 	private int validArmor, negativeArmor, maxArmor;
+	
 
 	@Test
 	public void validWeight() {
