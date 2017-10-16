@@ -96,4 +96,15 @@ public class MapObjectTest {
 		assertEquals(o.getMaxHealth(),o.getCurrentHealth(),0.0001);
 	}
 	
+	@Test
+	public void checkDestroyedHealthAboveZero() {
+		assertEquals(false, o.isDestroyed());
+	}
+	
+	@Test
+	public void checkDestroyedHealthIsZero() {
+		o.setCurrentHealth(0);
+		assertEquals(true, o.isDestroyed());
+	}
+	
 }

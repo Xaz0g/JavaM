@@ -54,4 +54,8 @@ public class MapObject {
 			currentHealth = maxHealth;
 		}
 	}
+	
+	public boolean isDestroyed() {
+		return currentHealth == 0 ? true : false;
+	}
 }
