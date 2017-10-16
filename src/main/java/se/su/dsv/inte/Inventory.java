@@ -46,7 +46,29 @@ public class Inventory{
 	public boolean removeItem(int i) {
 		container[i] = null;
 		nextItemIndex = --nextItemIndex;
+		
+		adaptArray(i);
+		
 		return container[i] == null ? true : false;
+	}
+
+	private void adaptArray(int i) {
+		Item[] temp = new Item[container.length - (i +1)];
+		
+		int tempCounter = 0;
+		
+		for(int big = i +1; big < container.length; big++) {
+			temp[tempCounter] = container[big];
+			tempCounter++;
+		}
+		
+		tempCounter = 0;
+		for(int small = i; small < (container.length -1); small++) {
+			container[small] = temp [tempCounter];
+			tempCounter++;
+		}
+		
+		container[nextItemIndex] = null;		
 	}
 
 	public Item checkItem(int i) {
