@@ -51,5 +51,8 @@ public abstract class Item {
 	public double getArmorValue(){
 		return armorValue;
 	};
+	
+	// massa setMetoder();
+	// 	skapa ett containerObject, en för ett corpse och en för en chest (?)
 
 }
