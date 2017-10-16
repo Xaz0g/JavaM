@@ -25,13 +25,11 @@ public class InventoryTest {
 		assertEquals(10, validContainer.getWeight());
 	}
 	
-	//addItem --> akta Integer.max osv.
 	//hur kontrollera att ett Item inte kan va i flera containers?
 	@Test
 	public void testAddItem() {
 		assertEquals(true, validContainer.add(testItem));
 		assertEquals(1, validContainer.getIndex());
-		
 	}
 	
 	@Test
