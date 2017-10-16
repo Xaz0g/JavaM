@@ -1,11 +1,12 @@
 package se.su.dsv.inte;
 
-public class ContainerObject extends MapObject {
+public class Inventory{
 	
 	private Item[] container;
+	private int nextItemIndex = 0;
 	private int currentWeight;
 	
-	public ContainerObject(int i) {
+	public Inventory(int i) {
 		if(i < 1)
 			throw new IllegalArgumentException();
 		
@@ -24,6 +25,22 @@ public class ContainerObject extends MapObject {
 	
 	public int getWeight() {
 		return currentWeight;
+	}
+	
+	public int getIndex() {
+		return nextItemIndex;
+	}
+
+	public boolean add(Item testItem) {
+		container[0] = testItem;
+		
+		if(container[0].equals(testItem)) {
+			nextItemIndex++;
+			return true;
+		}
+			
+		
+		return false;
 	}
 	
 }
