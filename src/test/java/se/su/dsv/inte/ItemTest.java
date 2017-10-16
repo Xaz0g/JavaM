@@ -7,60 +7,94 @@ public class ItemTest {
 
 	private Item i;
 
-	private String validName = "item1", emptyName = "", nullName = null;
-	private int zeroWeight = 0, validWeight = 10, maxWeight = 1000;
-	private int validSpeed = 1, negativeSpeed = -1, maxSpeed = 100;
-	private int validArmor, negativeArmor, maxArmor;
-	
+	private String validName = "name", longName = "namenamename", shortName = "na", nullName = null;
+	private int validWeight = 10, maxWeight = 1000, negativeWeight = -1;
+	private double validVelocity = 1, negativeVelocity = -1, maxVelocity = 5.01; // 5.00 är maxspeed, 5.01 testar så man inte kan vara mer än fem gånger snabbare än default
+	private double validArmor, negativeArmor, maxArmor;
+	private double validAttack;
+
+	// Weapon-tests
 
 	@Test
-	public void validWeight() {
-		i = new Item(validName, validWeight, validSpeed, validArmor);
+	public void validInput() {
+		i = new Weapon(validName, validWeight, validAttack, validVelocity, validArmor);
 		assertEquals(validWeight, i.getWeight());
-		assertEquals(validArmor, i.getArmor());
-		assertEquals(validSpeed, i.getSpeed());
+		assertEquals(validArmor, i.getArmorValue(),0.001);
+		assertEquals(validVelocity, i.getVelocity(), 0.001);
 		assertEquals(validName, i.getName());
 
 	}
 
-	@Test(expected = IndexOutOfBoundsException.class)
-	public void invalidWeightZero() {
-		i = new Item(validName, zeroWeight, validSpeed, validArmor);
+	// 2 weight tests
 
-	}
+//	@Test(expected = IndexOutOfBoundsException.class)
+//	public void invalidWeightZero() {
+//		i = new Weapon(validName, zeroWeight, validAttack, validSpeed, validArmor);
+//	}
 
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void invalidWeightMax() {
-		i = new Item(validName, maxWeight, validSpeed, validArmor);
+		i = new Weapon(validName, maxWeight, validAttack, validVelocity, validArmor);
 	}
 
-	@Test
-	public void invalidSpeedNegative() {
-		i = new Item(validName, validWeight, negativeSpeed, validArmor);
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void invalidWeightNegative() {
+		i = new Weapon(validName, negativeWeight, validAttack, validVelocity, validArmor);
+	}
+
+	// 2 speed tests
+
+	@Test (expected = IndexOutOfBoundsException.class)
+	public void invalidVelocityNegative() {
+		i = new Weapon(validName, validWeight, validAttack, negativeVelocity, validArmor);
 	}
 
 	@Test
 	public void invalidSpeedMax() {
-		i = new Item(validName, validWeight, maxSpeed, validArmor);
+		i = new Weapon(validName, validWeight, validAttack, maxVelocity, validArmor);
 	}
 
-	@Test
+	// 2 armor tests
+	@Test (expected = IndexOutOfBoundsException.class)
 	public void invalidArmorNegative() {
-		i = new Item(validName, validWeight, validSpeed, negativeArmor);
+		i = new Weapon(validName, validWeight, validAttack, validVelocity, negativeArmor);
 	}
 
 	@Test
 	public void invalidArmorMax() {
-		i = new Item(validName, validWeight, validSpeed, maxArmor);
+		i = new Weapon(validName, validWeight, validAttack, validVelocity, maxArmor);
 	}
-	
-	@Test
-	public void invalidNameNull() {
-		i = new Item(nullName, validWeight, validSpeed, validArmor);
+
+	// 3 name tests
+	@Test (expected = IndexOutOfBoundsException.class)
+	public void invalidNullName() {
+		i = new Weapon(nullName, validWeight, validAttack, validVelocity, validArmor);
 	}
-	
+
 	@Test
-	public void invalidNameEmpty() {
-		i = new Item(emptyName, validWeight, validSpeed, validArmor);
+	public void invalidShortName() {
+		i = new Weapon(shortName, validWeight, validAttack, validVelocity, validArmor);
+	}
+
+	@Test
+	public void invalidLongName() {
+		i = new Weapon(longName, validWeight, validAttack, validVelocity, validArmor);
+	}
+
+	// 2 attack tests
+
+//	@Test
+//	public void validAttackZero(){
+//		i = new Weapon(validName, validWeight, validAttack, validVelocity, validArmor);
+//	}
+
+	@Test
+	public void invalidAttackMax(){
+		i = new Weapon(validName, validWeight, validAttack, validVelocity, validArmor);
+	}
+
+	@Test (expected = IndexOutOfBoundsException.class)
+	public void invalidAttackNegative(){
+		i = new Weapon(validName, validWeight, validAttack, validVelocity, validArmor);
 	}
 }
