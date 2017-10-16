@@ -32,15 +32,25 @@ public class Inventory{
 	}
 
 	public boolean add(Item testItem) {
-		container[0] = testItem;
+		container[nextItemIndex] = testItem;
 		
-		if(container[0].equals(testItem)) {
+		if(container[nextItemIndex].equals(testItem)) {
 			nextItemIndex++;
 			return true;
 		}
 			
 		
 		return false;
+	}
+
+	public boolean removeItem(int i) {
+		container[i] = null;
+		nextItemIndex = --nextItemIndex;
+		return container[i] == null ? true : false;
+	}
+
+	public Item checkItem(int i) {
+		return container[i];
 	}
 	
 }

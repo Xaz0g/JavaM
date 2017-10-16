@@ -6,8 +6,9 @@ import org.junit.Test;
 
 public class InventoryTest {
 	
-	private Inventory validContainer = new Inventory(10);
-
+	private final Inventory validContainer = new Inventory(10);
+	private final Item testItem = new Item();
+	
 	@Test(expected = IllegalArgumentException.class)
 	public void testCreateIllegalContainerObject() {
 		Inventory cO = new Inventory(0);
@@ -25,21 +26,49 @@ public class InventoryTest {
 	}
 	
 	//addItem --> akta Integer.max osv.
+	//hur kontrollera att ett Item inte kan va i flera containers?
 	@Test
 	public void testAddItem() {
-		Inventory inv = new Inventory(10);
-		Item testItem = new Item();
+		assertEquals(true, validContainer.add(testItem));
+		assertEquals(1, validContainer.getIndex());
 		
-		assertEquals(true, inv.add(testItem));
 	}
 	
 	@Test
-	public void testIncrementItemIndex() {
-		Inventory inv = new Inventory(10);
-		Item testItem = new Item();
-		inv.add(testItem);
-		
-		assertEquals(1, inv.getIndex());
+	public void testCheckItem(){
+		validContainer.add(testItem);
+		assertEquals(testItem,validContainer.checkItem(0));
+	}
+	
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testCheckIndexLessThanZero() {
+		assertEquals
+		(false, validContainer.checkItem(-1));
+	}
+	
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testCheckIndexOutOfBounds() {
+		assertEquals
+		(false, validContainer.checkItem(11));
+	}
+	
+	@Test
+	public void testRemoveItem() {
+		validContainer.add(testItem);
+		assertEquals(true, validContainer.removeItem(0));
+		assertEquals(0, validContainer.getIndex());
+	}
+	
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testRemoveIndexLessThanZero() {
+		assertEquals
+		(false, validContainer.checkItem(11));
+	}
+	
+	@Test (expected = ArrayIndexOutOfBoundsException.class)
+	public void testRemoveItemOutOfBounds() {
+		assertEquals
+			(false, validContainer.removeItem(11));
 	}
 	
 //	@Test
