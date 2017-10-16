@@ -13,5 +13,4 @@ public class PlayerCharacter extends MapObject{
 		return speed;
 	}
 	
-	
 }
