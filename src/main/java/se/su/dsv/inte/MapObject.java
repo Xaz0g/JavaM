@@ -6,16 +6,8 @@ public class MapObject {
 	private double maxHealth, currentHealth;
 	
 	public MapObject(String name, double startingHealth) {
-		String cleanedName = name.trim();
-		if(cleanedName.equals("")) {
-			throw new IllegalArgumentException("MapObject name cannot be empty!");
-		}
-		this.name = name;
-		
-		if(startingHealth < 1) {
-			throw new IllegalArgumentException("MapObject starting helath must be greater than zero!");
-		}
-		this.maxHealth = startingHealth;
+		setName(name);
+		setMaxHealth(startingHealth);
 		this.currentHealth = this.maxHealth;
 	}
 	
@@ -23,11 +15,33 @@ public class MapObject {
 		return name;
 	}
 	
+	public void setName(String name) {
+		String cleanedName = name.trim();
+		if(cleanedName.equals("")) {
+			throw new IllegalArgumentException("MapObject name cannot be empty!");
+		}
+		this.name = name;
+	}
+	
 	public double getMaxHealth() {
 		return maxHealth;
+	}
+	
+	public void setMaxHealth(double newMaxHealth) {
+		if(newMaxHealth < 1) {
+			throw new IllegalArgumentException("MapObject max health must be greater than zero!");
+		}
+		this.maxHealth = newMaxHealth;
 	}
 
 	public double getCurrentHealth() {
 		return currentHealth;
+	}
+	
+	public void setCurrentHealth(double newCurrentHealth) {
+		if(newCurrentHealth < 0 || newCurrentHealth > maxHealth) {
+			throw new IllegalArgumentException("MapObject current health cannot be greater than max health or less than zero!");
+		}
+		this.currentHealth = newCurrentHealth;
 	}
 }
