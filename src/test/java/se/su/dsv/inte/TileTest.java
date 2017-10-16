@@ -37,13 +37,20 @@ public class TileTest {
 	public void testSetNullPlayer() {
 		Tile t = new TileEntity(grass);
 		t.setPlayerCharacter(null);
-		assertEquals(null,t.getPlayerCharacter());
+		assertEquals(null,t.getMapObject());
 	}
 	
 	@Test
 	public void testSetValidPlayer() {		// hmm onödigt att testa för både null och validPlayer?
 		Tile t = new TileEntity(grass);
 		t.setPlayerCharacter(legalPlayer);
-		assertEquals(legalPlayer,t.getPlayerCharacter());
+		assertEquals(legalPlayer,t.getMapObject());
+	}
+	
+	@Test 
+	public void testContainsValidPlayer() {
+		Tile t = new TileEntity(grass);
+		t.setPlayerCharacter(legalPlayer);
+		assertTrue(t.containsPlayer());
 	}
 }

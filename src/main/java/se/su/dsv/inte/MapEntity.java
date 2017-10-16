@@ -9,8 +9,6 @@ public class MapEntity implements Map{
 
 	Tile [][] map;
 	
-	Tile [][] map = new Tile[height][width]; 
-	
 	public MapEntity(int x, int y) {
 		if(x > 0 && y > 0){
 			this.height = x;

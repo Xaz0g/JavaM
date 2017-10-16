@@ -1,6 +1,6 @@
 package se.su.dsv.inte;
 
-public class PlayerCharacter {
+public class PlayerCharacter extends MapObject{
 	
 	private String name;
 	private double maxHealth, currentHealth;
