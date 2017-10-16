@@ -53,6 +53,6 @@ public abstract class Item {
 	};
 	
 	// massa setMetoder();
-	// 	skapa ett containerObject, en för ett corpse och en för en chest (?)
+	// skapa ett containerObject, en för ett corpse och en för en chest (?)
 
 }
