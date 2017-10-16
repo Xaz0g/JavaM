@@ -1,11 +1,11 @@
 package se.su.dsv.inte;
 
-public class ContainerObject extends MapObject {
+public class Inventory{
 	
 	private Item[] container;
 	private int currentWeight;
 	
-	public ContainerObject(int i) {
+	public Inventory(int i) {
 		if(i < 1)
 			throw new IllegalArgumentException();
 		
