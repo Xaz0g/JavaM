@@ -1,13 +1,14 @@
 package se.su.dsv.inte;
 
 public class Enemy extends MapObject{
-	String name;
-	private double maxHealth, currentHealth;
 	private int speed;
-	private final int standardHealth = 100;
 	
-	public Enemy(String name){
-		this.name = name;
-		maxHealth = currentHealth = standardHealth;
+	public Enemy(String name, double startingHealth, int startingSpeed) {
+		super(name,startingHealth);
+		this.speed = startingSpeed;
+	}
+	
+	public int getSpeed() {
+		return speed;
 	}
 }
