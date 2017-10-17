@@ -1,16 +1,9 @@
 package se.su.dsv.inte;
 
-public class PlayerCharacter extends MapObject{
+public class PlayerCharacter extends EntityObject{
 	
-	private int speed;
-	
-	public PlayerCharacter(String name, double startingHealth, int startingSpeed) {
-		super(name,startingHealth);
-		this.speed = startingSpeed;
-	}
-
-	public int getSpeed() {
-		return speed;
+	public PlayerCharacter(String name, double startingHealth, int startingMovePoints) {
+		super(name,startingHealth,startingMovePoints);
 	}
 	
 }
