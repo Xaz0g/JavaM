@@ -41,12 +41,18 @@ public class Communicator {
     // Battle
 
     public void damageDealt(EntityObject entObj, EntityObject enemy){
-        double entObjAttack = entObj.getDamage();
-        String entObjName = entObj.getName();
-        String enemyName = entObj.getName();
-
+        System.out.println(entObj.getName() + " did " + entObj.getDamage() + " damage to " + enemy.getName() + "!");
     }
 
+    public void damageAbsorbed(EntityObject entObj, EntityObject enemy){
+        double reducedBase = 1.0 * enemy.getArmor();
+        double actualDamage = entObj.getDamage() * reducedBase;
+        double absorbedDamage = entObj.getDamage() - actualDamage;
+
+        System.out.println(enemy.getName() + " just absorbed " + absorbedDamage + " (" + enemy.getArmor() + ").");
+    }
+
+    
 
     //
 
