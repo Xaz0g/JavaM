@@ -4,14 +4,14 @@ public class EntityObject extends MapObject{
 	
 	private int movementPoints;
 	private int movesMade;
-	private double damage;
+	private double attack;
 	private double armor;
 	
 	
 	public EntityObject(String name, double startingHealth, int startingMovementPoints, double startingDamage) {
 		super(name,startingHealth);
 		this.movementPoints = startingMovementPoints;
-		this.damage = startingDamage;
+		this.attack = startingDamage;
 		movesMade = 0;
 	}
 	
@@ -19,10 +19,15 @@ public class EntityObject extends MapObject{
 		if(o == null) {
 			throw new IllegalArgumentException("Cannot attack null!");
 		}
-		o.modifyCurrentHealth(-damage);
+		o.modifyCurrentHealth(-attack);
 		if(o instanceof EntityObject) {
-			modifyCurrentHealth(-(((EntityObject) o).getDamage()));
+			modifyCurrentHealth(-(((EntityObject) o).getAttack()));
 		}
+	}
+	
+	public void takeDamage(double damage) {
+		double damageModifier = 1 - armor;
+		//modifyHealth(-(damageModifier * damage));
 	}
 	
 	public void resetMovesMade() {
@@ -41,12 +46,12 @@ public class EntityObject extends MapObject{
 		this.movementPoints = movementPoints;
 	}
 
-	public double getDamage() {
-		return damage;
+	public double getAttack() {
+		return attack;
 	}
 
-	public void setDamage(double damage) {
-		this.damage = damage;
+	public void setAttack(double damage) {
+		this.attack = damage;
 	}
 
 	public double getArmor() {
@@ -56,5 +61,4 @@ public class EntityObject extends MapObject{
 	public void setArmor(double armor) {
 		this.armor = armor;
 	}
-	
 }
