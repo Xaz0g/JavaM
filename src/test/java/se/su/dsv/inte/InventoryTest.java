@@ -7,7 +7,7 @@ import org.junit.Test;
 public class InventoryTest {
 	private final static int VALID_SIZE = 10;
 	private final Inventory validContainer = new Inventory(VALID_SIZE);
-	private final Item testItem = new Item();
+	private final Item testItem = new Armor("TestItem", 1, 1, 1, 1);
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testCreateIllegalContainerObject() {
@@ -60,7 +60,7 @@ public class InventoryTest {
 	@Test	//Allt som ligger på högre index ska flyttas efter remove()
 	public void testCheckMiddleAfterRemove() {
 		for(int i = 0; i < VALID_SIZE; i++) {
-			validContainer.add(new Item());
+			validContainer.add(new Armor("TestItem", 1, 1, 1, 1));
 		}
 		int middle = 5;
 		Item nextItem = validContainer.checkItem(middle +1);
@@ -72,7 +72,7 @@ public class InventoryTest {
 	@Test
 	public void testCheckLastItemAfterRemove() {
 		for(int i = 0; i < VALID_SIZE; i++) {
-			validContainer.add(new Item());
+			validContainer.add(new Armor("TestItem", 1, 1, 1, 1));
 		}
 		int middle = 5;
 		

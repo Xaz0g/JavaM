@@ -1,7 +1,5 @@
 package se.su.dsv.inte;
 
-import static se.su.dsv.inte.Terrain.Grass;
-
 public class MapEntity implements Map{
 	
 	int height; // x = row
@@ -19,9 +17,6 @@ public class MapEntity implements Map{
 		}else {
 			throw new IllegalArgumentException(); 
 		}
-		
-		
-		
 	}
 	
 	public int getHeight() {
@@ -33,25 +28,13 @@ public class MapEntity implements Map{
 	}
 	
 	public Tile getTile(int row, int column) {
-		if(row > -1 && column > -1 && row < height && column < width) {
-			return map[row][column];
-		} else if(row >= height && column >= width){
-			throw new IndexOutOfBoundsException();
-		
-		} else{
-			throw new IndexOutOfBoundsException();
-			
-		}
-	
+		checkMapPos(row,column);
+		return map[row][column];
 	}
 	
 	public void setTile(Tile tile, int row, int column) {
-
+		checkMapPos(row,column);
 		map[row][column] = tile;
-		
-		
-		
-		
 	}
 	
 	public PlayerCharacter getPlayerCharacter() {
@@ -59,16 +42,30 @@ public class MapEntity implements Map{
 		return pChar;
 	}
 	
-	public void placeMapObject(PlayerCharacter mObject, int row, int column) {
-		// TODO Auto-generated method stub
-		
+	public void placeMapObject(MapObject mObject, int row, int column) {
+		checkMapPos(row,column);
+		map[row][column].setMapObject(mObject);
 	}
 	
 	public void moveMapObject(int fromRow, int fromColumn, int toRow, int toColumn) {
-		// TODO Auto-generated method stub
+		checkMapPos(fromRow,fromColumn);
+		checkMapPos(toRow,toColumn);
 		
+		if(map[fromRow][fromColumn].isOccupied()) {
+			map[toRow][toColumn].setMapObject(map[fromRow][fromColumn].getMapObject());
+			map[fromRow][fromColumn].setMapObject(null);
+		} else {
+			throw new IllegalArgumentException("No MapObject to move!");
+		}
 	}
 	
-	
+	private void checkMapPos(int row, int column) {
+		if(row < 0 || row >= height) {
+			throw new IllegalArgumentException("Invalid row!");
+		}
+		if(column < 0 || column >= width) {
+			throw new IllegalArgumentException("Invalid column!!");
+		}
+	}
 
 }

@@ -12,7 +12,7 @@ public interface Map {
 	
 	public PlayerCharacter getPlayerCharacter();
 	
-	public void placeMapObject(PlayerCharacter mObject, int row, int column);
+	public void placeMapObject(MapObject mObject, int row, int column);
 	
 	public void moveMapObject(int fromRow, int fromColumn, int toRow, int toColumn);
 

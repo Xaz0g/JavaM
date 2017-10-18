@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TileTest {
 	
 	private Terrain grass = Terrain.Grass;
-	private PlayerCharacter legalPlayer = new PlayerCharacter("Victor", 3.0, 1);
+	private PlayerCharacter legalPlayer = new PlayerCharacter("Victor", 3.0, 1,10.0);
 	
 	@Test
 	public void testIsNotOccupied() {
@@ -36,21 +36,21 @@ public class TileTest {
 	@Test
 	public void testSetNullPlayer() {
 		Tile t = new TileEntity(grass);
-		t.setPlayerCharacter(null);
+		t.setMapObject(null);
 		assertEquals(null,t.getMapObject());
 	}
 	
 	@Test
 	public void testSetValidPlayer() {		// hmm onödigt att testa för både null och validPlayer?
 		Tile t = new TileEntity(grass);
-		t.setPlayerCharacter(legalPlayer);
+		t.setMapObject(legalPlayer);
 		assertEquals(legalPlayer,t.getMapObject());
 	}
 	
 	@Test 
 	public void testContainsValidPlayer() {
 		Tile t = new TileEntity(grass);
-		t.setPlayerCharacter(legalPlayer);
+		t.setMapObject(legalPlayer);
 		assertTrue(t.containsPlayer());
 	}
 }

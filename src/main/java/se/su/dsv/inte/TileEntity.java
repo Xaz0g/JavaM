@@ -29,8 +29,8 @@ public class TileEntity implements Tile{
 		return mO;
 	}
 
-	public void setPlayerCharacter(PlayerCharacter p) {
-		mO = p;
+	public void setMapObject(MapObject o) {
+		mO = o;
 	}
 
 	public boolean containsPlayer() {
