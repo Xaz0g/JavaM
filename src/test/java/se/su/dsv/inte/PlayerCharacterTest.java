@@ -19,7 +19,7 @@ public class PlayerCharacterTest {
 		assertEquals(health,p.getMaxHealth(),0.001);
 		assertEquals(p.getMaxHealth(),p.getCurrentHealth(),0.001);
 		assertEquals(movePoints,p.getMovementPoints());
-		assertEquals(damage, p.getDamage(),0.001);
+		assertEquals(damage, p.getAttack(),0.001);
 		assertEquals(i, p.getInventory());
 		
 	}
