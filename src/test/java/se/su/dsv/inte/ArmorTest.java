@@ -18,10 +18,10 @@ public class ArmorTest {
 	public void validInput() {
 		i = new Cosmetic(validName, validWeight, validAttack, validVelocity, validArmor);
 		assertEquals(validWeight, i.getWeight(),0.001);
-		assertEquals(validArmor, i.getArmorValue(),0.001);
-		assertEquals(validVelocity, i.getVelocity(), 0.001);
+		assertEquals(validArmor, i.getArmorBonus(),0.001);
+		assertEquals(validVelocity, i.getMoveMadeBonus(), 0.001);
 		assertEquals(validName, i.getName());
-		assertEquals(validAttack, i.getAttack(), 0.001);
+		assertEquals(validAttack, i.getAttackBonus(), 0.001);
 
 	}
 

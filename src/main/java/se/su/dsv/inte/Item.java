@@ -4,9 +4,9 @@ public abstract class Item {
 
 	private double weight;
 	private String name;
-	private double attack; 
-	private double velocity;
-	private double armorValue;
+	private double attackBonus; 
+	private double moveMadeBonus;
+	private double armorBouns;
 
 
 	public Item(String name, double weight, double attack, double velocity, double armorValue) {
@@ -20,13 +20,13 @@ public abstract class Item {
 		if(weight > 0 && weight <= 200){this.weight = weight;}
 			else {throw new IllegalArgumentException();	}
 
-		if(attack >= 0 && attack <= 100){this.attack = attack;}
+		if(attack >= 0 && attack <= 100){this.attackBonus = attack;}
 			else {throw new IllegalArgumentException(); }
 
-		if(velocity >= 0 && velocity <= 5.0){this.velocity = velocity;}
+		if(velocity >= 0 && velocity <= 5.0){this.moveMadeBonus = velocity;}
 			else {throw new IllegalArgumentException(); }
 
-		if(armorValue >= 0 && armorValue <= 100){this.armorValue = armorValue;}
+		if(armorValue >= 0 && armorValue <= 100){this.armorBouns = armorValue;}
 			else {throw new IllegalArgumentException(); }
 	}
 
@@ -40,16 +40,16 @@ public abstract class Item {
 		return name;
 	};
 
-	public double getVelocity(){
-		return velocity;
+	public double getMoveMadeBonus(){
+		return moveMadeBonus;
 	};
 
-	public double getAttack(){
-		return attack;
+	public double getAttackBonus(){
+		return attackBonus;
 	};
 
-	public double getArmorValue(){
-		return armorValue;
+	public double getArmorBonus(){
+		return armorBouns;
 	};
 	
 	// massa setMetoder();
