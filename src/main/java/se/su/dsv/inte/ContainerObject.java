@@ -2,11 +2,13 @@ package se.su.dsv.inte;
 
 import java.util.ArrayList;
 
-public class ContainerObject {
+public class ContainerObject extends MapObject {
 
 	ArrayList<Item> storedItems = new ArrayList<Item>();
 
-	public ContainerObject(Item... items) {
+	public ContainerObject(String name, double startingHealth, Item... items) {
+		super(name, startingHealth);
+		
 		if(storedItems == null) {
 			throw new NullPointerException();
 		}else {
@@ -44,11 +46,8 @@ public class ContainerObject {
 
 	}
 
-
 	//	toArray
-	//	
 	//	emptyList
-	//	
 	//	return array to Object
 
 }

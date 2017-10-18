@@ -8,11 +8,13 @@ import java.util.ArrayList;
 public class ContainerObjectTest {
 
 	private ContainerObject co;
+	private String name = "Chest";
+	private int health = 2;
 	private Item item1 = new Weapon("Weapon", 2, 3, 4, 5), item2 = new Armor("Armor", 2, 3, 4, 5), item3 = new Cosmetic("Cosmetic", 1, 1, 1, 1);
 
 	@Test
 	public void validGetStoredItems() {
-		co = new ContainerObject(item1, item2, item3);
+		co = new ContainerObject(name, health, item1, item2, item3);
 		ArrayList<Item> list = co.getStoredItems();
 		assertEquals(item1,list.get(0));
 		assertEquals(item2,list.get(1));
@@ -21,23 +23,23 @@ public class ContainerObjectTest {
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void invalidStoredItemsNull() {
-		co = new ContainerObject(null,null);
+		co = new ContainerObject(name, health, null,null);
 	}
 	
 	@Test (expected = NullPointerException.class)
 	public void invalidStoredItemsArrayListNull() {
-		co = new ContainerObject(null);
+		co = new ContainerObject(name, health, null);
 	}
 	
 	@Test
 	public void validCreateEmptyArrayList() {
-		co = new ContainerObject();
+		co = new ContainerObject(name, health);
 		assertTrue(co.getStoredItems().isEmpty());
 	}
 	
 	@Test
 	public void validEmptyList() {
-		co = new ContainerObject(item1, item2, item3);
+		co = new ContainerObject(name, health, item1, item2, item3);
 		co.emptyListStoredItems();
 		assertTrue(co.getStoredItems().isEmpty());
 		
