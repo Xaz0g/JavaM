@@ -13,18 +13,15 @@ public class PlayerCharacterTest {
 	
 	@Test
 	public void testValidConstructor() {
-		p = new PlayerCharacter("Axel",100,1,10, i);
-		
-		assertEquals("Axel",p.getName());
-		assertEquals(100,p.getMaxHealth(),0.001);
-		assertEquals(p.getMaxHealth(),p.getCurrentHealth(),0.001);
-		assertEquals(1,p.getMovementPoints());
-	}
-	
-	@Test
-	public void validGetInventory() {
 		p = new PlayerCharacter(name, health, movePoints, damage, i);
+		
+		assertEquals(name,p.getName());
+		assertEquals(health,p.getMaxHealth(),0.001);
+		assertEquals(p.getMaxHealth(),p.getCurrentHealth(),0.001);
+		assertEquals(movePoints,p.getMovementPoints());
+		assertEquals(damage, p.getDamage(),0.001);
 		assertEquals(i, p.getInventory());
+		
 	}
 	
 	@Test
