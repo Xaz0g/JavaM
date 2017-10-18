@@ -19,15 +19,19 @@ public class EntityObject extends MapObject{
 		if(o == null) {
 			throw new IllegalArgumentException("Cannot attack null!");
 		}
-		o.modifyCurrentHealth(-attack);
+		
 		if(o instanceof EntityObject) {
-			modifyCurrentHealth(-(((EntityObject) o).getAttack()));
+			((EntityObject) o).takeDamage(attack);
+			takeDamage(((EntityObject) o).getAttack());
+		} else {
+			o.modifyCurrentHealth(-attack);
 		}
 	}
 	
 	public void takeDamage(double damage) {
-		double damageModifier = 1 - armor;
-		//modifyHealth(-(damageModifier * damage));
+		double damageModifier = 1 - (armor / 100);
+		double damageTaken = damageModifier * damage;
+		modifyCurrentHealth(-damageTaken);
 	}
 	
 	public void resetMovesMade() {
