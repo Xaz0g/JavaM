@@ -28,6 +28,14 @@ public class ContainerObject {
 		return storedItems;
 	}
 
+	public void takeItemFromContainer() {
+		
+	}
+	
+	public void emptyListStoredItems() {
+		storedItems.clear();
+	}
+
 	public void getOneItem() {
 
 	}
@@ -36,9 +44,6 @@ public class ContainerObject {
 
 	}
 
-	public void takeItemFromContainer() {
-
-	}
 
 	//	toArray
 	//	

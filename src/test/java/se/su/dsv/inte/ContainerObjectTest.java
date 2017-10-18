@@ -28,4 +28,19 @@ public class ContainerObjectTest {
 	public void invalidStoredItemsArrayListNull() {
 		co = new ContainerObject(null);
 	}
+	
+	@Test
+	public void validCreateEmptyArrayList() {
+		co = new ContainerObject();
+		assertTrue(co.getStoredItems().isEmpty());
+	}
+	
+	@Test
+	public void validEmptyList() {
+		co = new ContainerObject(item1, item2, item3);
+		co.emptyListStoredItems();
+		assertTrue(co.getStoredItems().isEmpty());
+		
+	}
+	
 }
