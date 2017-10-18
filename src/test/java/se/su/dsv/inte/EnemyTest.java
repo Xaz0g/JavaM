@@ -8,7 +8,7 @@ public class EnemyTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+
 	}
 
 }

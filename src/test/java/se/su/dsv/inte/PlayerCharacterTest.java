@@ -17,4 +17,9 @@ public class PlayerCharacterTest {
 		assertEquals(p.getMaxHealth(),p.getCurrentHealth(),0.001);
 		assertEquals(1,p.getSpeed());
 	}
+	
+	@Test
+	public void testInvalidName() {
+		
+	}
 }
