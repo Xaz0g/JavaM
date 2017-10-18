@@ -7,10 +7,13 @@ import org.junit.Test;
 public class PlayerCharacterTest {
 	
 	PlayerCharacter p;
+	private Inventory i = new Inventory(3);
+	private String name = "Marie";
+	private int health = 100, movePoints = 1, damage = 10;
 	
 	@Test
 	public void testValidConstructor() {
-		p = new PlayerCharacter("Axel",100,1,10);
+		p = new PlayerCharacter("Axel",100,1,10, i);
 		
 		assertEquals("Axel",p.getName());
 		assertEquals(100,p.getMaxHealth(),0.001);
@@ -19,7 +22,13 @@ public class PlayerCharacterTest {
 	}
 	
 	@Test
-	public void testInvalidName() {
+	public void validGetInventory() {
+		p = new PlayerCharacter(name, health, movePoints, damage, i);
+		assertEquals(i, p.getInventory());
+	}
+	
+	@Test
+	public void invalidGetInventory() {
 		
 	}
 }
