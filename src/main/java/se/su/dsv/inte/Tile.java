@@ -6,6 +6,6 @@ public interface Tile {
 	boolean isOccupied();
 	boolean containsPlayer();
 	MapObject getMapObject(); 
-	void setPlayerCharacter(PlayerCharacter p);
+	void setMapObject(MapObject o);
 	
 }

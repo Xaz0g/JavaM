@@ -115,7 +115,7 @@ public class MapEntityTest {
 //	@Test
 //	public void getPlayerCharacterNotNull() {
 //		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
-//				PlayerCharacter pChar = new PlayerCharacter("Victor", 200.0, 1);
+//				PlayerCharacter pChar = new PlayerCharacter("Victor", 200.0, 1,1);
 //				m.placeMapObject(pChar, VALID_ROW, VALID_COLUMN);
 //		assertNotNull(m.getPlayerCharacter());
 //	}
