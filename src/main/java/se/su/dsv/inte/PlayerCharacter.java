@@ -16,6 +16,21 @@ public class PlayerCharacter extends EntityObject{
 		return inventory;
 	}
 	
+	public void checkAttackBonus() {
+		
+	// Kollar befintlig styrka 
+	double currentAttack = getAttack();
+	
+	// Plockar upp item med +3 styrka 
+	pChar.addItem(dubblehandat-svärd);
+	
+	// Kollar ny styrka 
+	double newAttack = getATtack();
+	
+	// Kontrollerar om styrkan har ökats från den befintliga till den nya 
+	if (currentAttack < newAttack){ return true; }
+	}
+	
 	public void addToInventory() {
 		
 	}
@@ -31,4 +46,6 @@ public class PlayerCharacter extends EntityObject{
 	public void checkPlaceInInventory() { // se om det finns platser kvar i inventory
 		
 	}
+	
+	
 }
