@@ -52,7 +52,7 @@ public class Communicator {
         System.out.println(enemy.getName() + " just absorbed " + absorbedDamage + " (" + enemy.getArmor() + ").");
     }
 
-    
+
 
     //
 
