@@ -5,6 +5,7 @@ public class EntityObject extends MapObject{
 	private int movementPoints;
 	private int movesMade;
 	private double damage;
+	private double armor;
 	
 	
 	public EntityObject(String name, double startingHealth, int startingMovementPoints, double startingDamage) {
@@ -46,6 +47,14 @@ public class EntityObject extends MapObject{
 
 	public void setDamage(double damage) {
 		this.damage = damage;
+	}
+
+	public double getArmor() {
+		return armor;
+	}
+
+	public void setArmor(double armor) {
+		this.armor = armor;
 	}
 	
 }
