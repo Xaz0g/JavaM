@@ -8,10 +8,10 @@ public class EntityObject extends MapObject{
 	private double armor;
 	
 	
-	public EntityObject(String name, double startingHealth, int startingMovementPoints, double startingDamage) {
+	public EntityObject(String name, double startingHealth, int startingMovementPoints, double startingAttack) {
 		super(name,startingHealth);
 		this.movementPoints = startingMovementPoints;
-		this.attack = startingDamage;
+		this.attack = startingAttack;
 		movesMade = 0;
 	}
 	
