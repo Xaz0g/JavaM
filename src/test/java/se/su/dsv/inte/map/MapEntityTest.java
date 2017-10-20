@@ -1,9 +1,15 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map;
 
 
 import static org.junit.Assert.*;
 
 import org.junit.*;
+
+import se.su.dsv.inte.MapObject;
+import se.su.dsv.inte.Terrain;
+import se.su.dsv.inte.Tile;
+import se.su.dsv.inte.TileEntity;
+import se.su.dsv.inte.map.MapEntity;
 
 
 public class MapEntityTest {

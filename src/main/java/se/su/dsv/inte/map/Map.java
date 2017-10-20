@@ -1,4 +1,8 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map;
+
+import se.su.dsv.inte.MapObject;
+import se.su.dsv.inte.PlayerCharacter;
+import se.su.dsv.inte.Tile;
 
 public interface Map {
 	
