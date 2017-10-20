@@ -9,7 +9,7 @@ import org.junit.*;
 public class MapEntityTest {
 
 	private Tile t;
-	private Map m;
+	private MapEntity m;
 	private static final int VALID_HEIGHT = 25, VALID_WIDTH = 20, ZERO = 0, NEGATIVE = -1, VALID_ROW = 0, VALID_COLUMN = 0;
 
 	@Test
@@ -119,6 +119,26 @@ public class MapEntityTest {
 //				m.placeMapObject(pChar, VALID_ROW, VALID_COLUMN);
 //		assertNotNull(m.getPlayerCharacter());
 //	}
-
-
+	
+	@Test
+	public void removeObjectFromMap() {
+		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
+		m.setMapTiles(Terrain.Grass);
+		MapObject o = new MapObject("test",10);
+		m.placeMapObject(o, 10, 10);
+		m.removeMapObject(o);
+		assertNull(m.getTile(10, 10).getMapObject());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void removeNullFromMap() {
+		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
+		m.removeMapObject(null);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void removeNotOnMap() {
+		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
+		m.removeMapObject(null);
+	}
 }
