@@ -123,25 +123,25 @@ public class MapEntityTest {
 //		assertNotNull(m.getPlayerCharacter());
 //	}
 	
-	@Test
-	public void removeObjectFromMap() {
-		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
-		m.setMapTiles(Terrain.Grass);
-		MapObject o = new MapObject("test",10);
-		m.placeMapObject(o, 10, 10);
-		m.removeMapObject(o);
-		assertNull(m.getTile(10, 10).getMapObject());
-	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void removeNullFromMap() {
-		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
-		m.removeMapObject(null);
-	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void removeNotOnMap() {
-		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
-		m.removeMapObject(null);
-	}
+//	@Test
+//	public void removeObjectFromMap() {
+//		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
+//		m.setMapTiles(Terrain.Grass);
+//		MapObject o = new MapObject("test",10);
+//		m.placeMapObject(o, 10, 10);
+//		m.removeMapObject(o);
+//		assertNull(m.getTile(10, 10).getMapObject());
+//	}
+//	
+//	@Test(expected = IllegalArgumentException.class)
+//	public void removeNullFromMap() {
+//		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
+//		m.removeMapObject(null);
+//	}
+//	
+//	@Test(expected = IllegalArgumentException.class)
+//	public void removeNotOnMap() {
+//		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
+//		m.removeMapObject(null);
+//	}
 }

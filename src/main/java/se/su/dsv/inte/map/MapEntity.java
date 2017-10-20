@@ -7,11 +7,11 @@ import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class MapEntity implements Map{
 	
-	int height; // x = row
-	int width;  // y = column
+	private final int height; // x = row
+	private final int width;  // y = column
 
-	Tile [][] map;
-	HashMap<MapObject,Tile> objectsOnMap;
+	private final Tile [][] map;
+	private final HashMap<MapObject,Tile> objectsOnMap;
 	
 	public MapEntity(int x, int y) {
 		if(x > 0 && y > 0){
@@ -20,7 +20,7 @@ public class MapEntity implements Map{
 
 			map = new Tile[height][width];
 			
-			objectsOnMap = new HashMap<>();
+			objectsOnMap = new HashMap<MapObject,Tile>();
 
 		}else {
 			throw new IllegalArgumentException(); 
