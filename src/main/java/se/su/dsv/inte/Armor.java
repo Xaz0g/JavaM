@@ -2,8 +2,8 @@ package se.su.dsv.inte;
 
 public class Armor extends Item{
 
-	public Armor(String name, double weight, double attack, double velocity, double armorValue) {
-		super(name, weight, attack, velocity, armorValue);
+	public Armor(String name, double weight, double attackBonus, int movementBonus, double armorBonus) {
+		super(name, weight, attackBonus, movementBonus, armorBonus);
 		// TODO Auto-generated constructor stub
 	}
 

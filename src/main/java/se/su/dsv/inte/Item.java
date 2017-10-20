@@ -4,12 +4,12 @@ public abstract class Item {
 
 	private double weight;
 	private String name;
-	private double attack; 
-	private double velocity;
-	private double armorValue;
+	private double attackBonus; 
+	private int movementBonus;
+	private double armorBonus;
 
 
-	public Item(String name, double weight, double attack, double velocity, double armorValue) {
+	public Item(String name, double weight, double attackBonus, int movementBonus, double armorBonus) {
 
 		if(name == null){
 			throw new NullPointerException();
@@ -20,13 +20,13 @@ public abstract class Item {
 		if(weight > 0 && weight <= 200){this.weight = weight;}
 			else {throw new IllegalArgumentException();	}
 
-		if(attack >= 0 && attack <= 100){this.attack = attack;}
+		if(attackBonus >= 0 && attackBonus <= 100){this.attackBonus = attackBonus;}
 			else {throw new IllegalArgumentException(); }
 
-		if(velocity >= 0 && velocity <= 5.0){this.velocity = velocity;}
+		if(movementBonus >= 0 && movementBonus <= 5.0){this.movementBonus = movementBonus;}
 			else {throw new IllegalArgumentException(); }
 
-		if(armorValue >= 0 && armorValue <= 100){this.armorValue = armorValue;}
+		if(armorBonus >= 0 && armorBonus <= 100){this.armorBonus = armorBonus;}
 			else {throw new IllegalArgumentException(); }
 	}
 
@@ -40,16 +40,19 @@ public abstract class Item {
 		return name;
 	};
 
-	public double getVelocity(){
-		return velocity;
+	public int getMovementBonus(){
+		return movementBonus;
 	};
 
-	public double getAttack(){
-		return attack;
+	public double getAttackBonus(){
+		return attackBonus;
 	};
 
-	public double getArmorValue(){
-		return armorValue;
+	public double getArmorBonus(){
+		return armorBonus;
 	};
+	
+	// massa setMetoder();
+	// skapa ett containerObject, en för ett corpse och en för en chest (?)
 
 }

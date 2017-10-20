@@ -7,6 +7,7 @@ import org.junit.Test;
 public class TileTest {
 	
 	private Terrain grass = Terrain.Grass;
+	private Inventory i = new Inventory(3);
 	private PlayerCharacter legalPlayer = new PlayerCharacter("Victor", 3.0, 1,10.0);
 	
 	@Test

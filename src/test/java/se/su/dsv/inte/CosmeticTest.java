@@ -10,7 +10,7 @@ public class CosmeticTest {
 
     private String validName = "name", longName = "namenamename", shortName = "na", nullName = null;
     private double validWeight = 10.0, exceededWeight = 1000, negativeWeight = -1;
-    private double validVelocity = 1, negativeVelocity = -1, exceededVelocity = 5.01; // 5.00 är exceededspeed, 5.01 testar så man inte kan vara mer än fem gånger snabbare än default
+    private int validVelocity = 1, negativeVelocity = -1, exceededVelocity = 6; // 5.00 är exceededspeed, 5.01 testar så man inte kan vara mer än fem gånger snabbare än default
     private double validArmor = 5, negativeArmor = -1, exceededArmor = 101;
     private double validAttack = 3, negativeAttack = -1, exceededAttack = 101;
 
@@ -18,10 +18,10 @@ public class CosmeticTest {
     public void validInput() {
         i = new Armor(validName, validWeight, validAttack, validVelocity, validArmor);
         assertEquals(validWeight, i.getWeight(),0.001);
-        assertEquals(validArmor, i.getArmorValue(),0.001);
-        assertEquals(validVelocity, i.getVelocity(), 0.001);
-        assertEquals(validName, i.getName());
-        assertEquals(validAttack, i.getAttack(), 0.001);
+		assertEquals(validArmor, i.getArmorBonus(),0.001);
+		assertEquals(validVelocity, i.getMovementBonus(), 0.001);
+		assertEquals(validName, i.getName());
+		assertEquals(validAttack, i.getAttackBonus(), 0.001);
 
     }
 
