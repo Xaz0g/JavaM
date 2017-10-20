@@ -59,10 +59,14 @@ public class MapObject {
 			currentHealth = maxHealth;
 		}
 		
-		
+		controller.removeIfDestroyed();
 	}
 	
 	public boolean isDestroyed() {
 		return currentHealth == 0 ? true : false;
+	}
+
+	public MapObjectController getController() {
+		return controller;
 	}
 }

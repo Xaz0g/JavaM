@@ -12,7 +12,7 @@ public class EntityObjectTest {
 	
 	@Test
 	public void testAttack() {
-		EntityObject enemy = new EntityObject("testEnemy",100,1,10);
+		EntityObject enemy = new EntityObject(null,"testEnemy",100,1,10);
 		o.attack(enemy);
 		assertEquals(90,enemy.getCurrentHealth(),0.0001);
 		assertEquals(90,o.getCurrentHealth(),0.0001);
