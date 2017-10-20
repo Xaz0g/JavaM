@@ -8,7 +8,7 @@ import se.su.dsv.inte.map.objects.MapObject;
 
 public class MapObjectTest {
 	
-	MapObject o = new MapObject("Axel",100);
+	MapObject o = new MapObject(null,"Axel",100);
 	
 	@Test
 	public void testValidNameAndHealth() {
@@ -24,17 +24,17 @@ public class MapObjectTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testBlankspaceName() {
-		o = new MapObject("      ",100);
+		o = new MapObject(null,"      ",100);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testZeroStartingHealth() {
-		o = new MapObject("Axel",0);
+		o = new MapObject(null,"Axel",0);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testNegativeStartingHealth() {
-		o = new MapObject("Axel",-1);
+		o = new MapObject(null,"Axel",-1);
 	}
 	
 	@Test

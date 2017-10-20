@@ -1,11 +1,16 @@
 package se.su.dsv.inte.map.objects;
 
+import se.su.dsv.inte.controllers.MapObjectController;
+import se.su.dsv.inte.map.MapEntity;
+
 public class MapObject {
 	
+	private final MapObjectController controller;
 	private String name;
 	private double maxHealth, currentHealth;
 	
-	public MapObject(String name, double startingHealth) {
+	public MapObject(MapEntity map, String name, double startingHealth) {
+		this.controller = new MapObjectController(map,this);
 		setName(name);
 		setMaxHealth(startingHealth);
 		this.currentHealth = this.maxHealth;
@@ -53,6 +58,8 @@ public class MapObject {
 		} else if(currentHealth > maxHealth) {
 			currentHealth = maxHealth;
 		}
+		
+		
 	}
 	
 	public boolean isDestroyed() {

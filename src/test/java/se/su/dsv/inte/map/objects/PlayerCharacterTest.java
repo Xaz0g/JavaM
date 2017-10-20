@@ -19,7 +19,7 @@ public class PlayerCharacterTest {
 	
 	@Test
 	public void testValidConstructor() {
-		p = new PlayerCharacter(name, health, movePoints, attack);
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
 		
 		assertEquals(name,p.getName());
 		assertEquals(health,p.getMaxHealth(),0.001);
@@ -32,7 +32,7 @@ public class PlayerCharacterTest {
 	
 	@Test
 	public void validIncreaseAttackBonus() {
-		p = new PlayerCharacter(name, health, movePoints, attack);
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
 		item = new Weapon("Weapon", 2, 3, 4, 5);
 		p.increaseAttackBonus(item);
 		assertEquals((item.getAttackBonus() + attack) , p.getAttack(), 0.001);
@@ -40,7 +40,7 @@ public class PlayerCharacterTest {
 	
 	@Test
 	public void validIncreaseArmorBonus() {
-		p = new PlayerCharacter(name, health, movePoints, attack);
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
 		item = new Weapon("Weapon", 2, 3, 4, 5);
 		double armor = p.getArmor();
 		p.increaseArmorBonus(item);
@@ -49,7 +49,7 @@ public class PlayerCharacterTest {
 	
 	@Test
 	public void validIncreaseMovementBonus() {
-		p = new PlayerCharacter(name, health, movePoints, attack);
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
 		item = new Weapon("Weapon", 2, 3, 4, 5);
 		p.increaseMovementBonus(item);
 		assertEquals((item.getMovementBonus() + movePoints) , p.getMovementPoints() );
@@ -57,7 +57,7 @@ public class PlayerCharacterTest {
 	
 	@Test
 	public void validLookAtInventory() {
-		p = new PlayerCharacter(name, health, movePoints, attack);
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
 		item1 = new Weapon("Weapon", 2, 3, 4, 5);
 		item2 = new Weapon("Armor", 2, 3, 4, 5);
 		p.addToInventory(item1);

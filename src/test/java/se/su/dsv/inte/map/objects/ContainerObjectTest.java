@@ -21,7 +21,7 @@ public class ContainerObjectTest {
 
 	@Test
 	public void validGetStoredItems() {
-		co = new ContainerObject(name, health, item1, item2, item3);
+		co = new ContainerObject(null,name, health, item1, item2, item3);
 		ArrayList<Item> list = co.getStoredItems();
 		assertEquals(item1,list.get(0));
 		assertEquals(item2,list.get(1));
@@ -30,23 +30,23 @@ public class ContainerObjectTest {
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void invalidStoredItemsNull() {
-		co = new ContainerObject(name, health, null,null);
+		co = new ContainerObject(null,name, health, null,null);
 	}
 	
 	@Test (expected = NullPointerException.class)
 	public void invalidStoredItemsArrayListNull() {
-		co = new ContainerObject(name, health, null);
+		co = new ContainerObject(null,name, health, null);
 	}
 	
 	@Test
 	public void validCreateEmptyArrayList() {
-		co = new ContainerObject(name, health);
+		co = new ContainerObject(null,name, health);
 		assertTrue(co.getStoredItems().isEmpty());
 	}
 	
 	@Test
 	public void validEmptyList() {
-		co = new ContainerObject(name, health, item1, item2, item3);
+		co = new ContainerObject(null,name, health, item1, item2, item3);
 		co.emptyListStoredItems();
 		assertTrue(co.getStoredItems().isEmpty());
 		
