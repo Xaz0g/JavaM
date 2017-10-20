@@ -13,13 +13,12 @@ public class CommunicatorTest {
     // Object-attributes
 
     private double  entObjDamage = 10,
-                    entObjArmor = 0.1,
-                    enemyObjDamage = 10,
-                    enemyArmor = 0.1,
-                    armorProtection= 1.0 - enemyArmor,
+                    enemyArmor = 0,
+                    armorProtection = 1.0 - enemyArmor,
                     absorbedDamage = entObjDamage * armorProtection;
 
-    private String  statusString,
+    private String  statusStringPositive = "",
+                    statusStringNegative = "not ",
                     itemName = "Crossbow",
                     entObjName = "Victor",
                     enemyName = "Marie"
@@ -29,7 +28,8 @@ public class CommunicatorTest {
     // Frågan är om attributen ska vara hårdkodade eller ha samma entry som metod-kallet
     private String  successfulMovement = "You have successfully moved character from [" + startRow + "," + startColumn + "] to [" + validRow + "," + validColumn + "].",
                     unsuccessfulMovement = "It is not possible to move character from [" + startRow + "," + startColumn + "] to [" + invalidRow + "," + invalidColumn + "].",
-                    movementCheck = "It is " + statusString + "possible to move to this position!",
+                    movementCheckPositive = "It is " + statusStringPositive + "possible to move to this position!",
+                    movementCheckNegative = "It is " + statusStringNegative + "possible to move to this position!",
                     receivedItem = itemName + " has been added to inventory!",
                     deletedItem = itemName + " has been deleted from inventory!",
                     damageDealt = entObjName + " did " + entObjDamage + " damage to " + enemyName + "!",
@@ -39,15 +39,15 @@ public class CommunicatorTest {
                     youveKilledEnemy = "You've killed " + enemyName;
 
     public EntityObject newCharacter(){
-        return new PlayerCharacter("Victor", 100,10, 5);
+        return new PlayerCharacter("Victor", 100,10, 10);
     }
 
     public EntityObject newEnemy(){
-        return new PlayerCharacter("Marie", 100, 10, 5);
+        return new PlayerCharacter("Marie", 100, 10, 10);
     }
 
     public Weapon newWeapon(){
-        return new Weapon("crossbow", 5,5,5,5);
+        return new Weapon("Crossbow", 5,5,5,5);
     }
 
     @Test
@@ -65,15 +65,13 @@ public class CommunicatorTest {
     @Test
     public void movementCheckTrue(){
         Communicator com = new Communicator();
-        statusString = "";
-        assertEquals(movementCheck, com.movementCheck(true));
+        assertEquals(movementCheckPositive, com.movementCheck(true));
     }
 
     @Test
     public void movementCheckFalse(){
         Communicator com = new Communicator();
-        statusString = "not ";
-        assertEquals(movementCheck, com.movementCheck(false));
+        assertEquals(movementCheckNegative, com.movementCheck(false));
     }
 
     @Test
@@ -86,7 +84,7 @@ public class CommunicatorTest {
     public void deletedItem(){
         Communicator com = new Communicator();
         Weapon weapon = newWeapon();
-        assertEquals(deletedItem, com.receivedItem(weapon));
+        assertEquals(deletedItem, com.deletedItem(weapon));
     }
     @Test
     public void damageDealt(){
