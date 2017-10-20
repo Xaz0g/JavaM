@@ -29,6 +29,9 @@ public class EntityObject extends MapObject{
 	}
 	
 	public void takeDamage(double damage) {
+		if(damage < 0) {
+			throw new IllegalArgumentException("Cannot take negative damage!");
+		}
 		double damageModifier = 1 - (armor / 100);
 		double damageTaken = damageModifier * damage;
 		modifyCurrentHealth(-damageTaken);

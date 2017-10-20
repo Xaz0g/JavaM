@@ -20,4 +20,22 @@ public class EntityObjectTest {
 	public void testAttackNull() {
 		o.attack(null);
 	}
+	
+	@Test
+	public void testTakeDamage() {
+		o.takeDamage(10);
+		assertEquals(90,o.getCurrentHealth(),0.0001);
+	}
+	
+	@Test
+	public void testTakeDamageWithArmor() {
+		o.setArmor(10);
+		o.takeDamage(10);
+		assertEquals(91,o.getCurrentHealth(),0.0001);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testTakeNegativeDamage() {
+		o.takeDamage(-10);
+	}
 }

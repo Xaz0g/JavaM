@@ -5,6 +5,9 @@ public class MapObjectController {
 	private final MapObject object;
 	
 	public MapObjectController(MapEntity map, MapObject object) {
-		this.map
+		this.map = map;
+		this.object = object;
 	}
+	
+	
 }
