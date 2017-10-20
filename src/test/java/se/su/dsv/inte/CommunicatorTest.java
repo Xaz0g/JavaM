@@ -44,11 +44,11 @@ public class CommunicatorTest {
                     youveKilledEnemy = "You've killed " + enemyName;
 
     public EntityObject newCharacter(){
-        return new PlayerCharacter("Victor", 100,10, 10);
+        return new PlayerCharacter(null,"Victor", 100,10, 10);
     }
 
     public EntityObject newEnemy(){
-        return new PlayerCharacter("Marie", 100, 10, 10);
+        return new PlayerCharacter(null,"Marie", 100, 10, 10);
     }
 
     public Weapon newWeapon(){

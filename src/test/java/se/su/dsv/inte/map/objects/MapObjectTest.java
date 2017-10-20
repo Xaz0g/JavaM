@@ -19,7 +19,7 @@ public class MapObjectTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testEmptyName() {
-		o = new MapObject("",100);
+		o = new MapObject(null,"",100);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)

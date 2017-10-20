@@ -17,4 +17,14 @@ public class MapObjectController {
 			map.removeMapObject(object);
 		}
 	}
+
+	public MapEntity getMap() {
+		return map;
+	}
+
+	public MapObject getObject() {
+		return object;
+	}
+	
+	
 }

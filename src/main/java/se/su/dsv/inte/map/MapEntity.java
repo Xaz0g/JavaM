@@ -80,6 +80,8 @@ public class MapEntity implements Map{
 	public void removeMapObject(MapObject o) {
 		if(o == null) {
 			throw new IllegalArgumentException("Cannot remove null from map!");
+		} if(!objectsOnMap.containsKey(o)) {
+			throw new IllegalArgumentException("Object not on map!");
 		}
 		
 		objectsOnMap.get(o).setMapObject(null);

@@ -127,7 +127,7 @@ public class MapEntityTest {
 	public void removeObjectFromMap() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
 		m.setMapTiles(Terrain.Grass);
-		MapObject o = new MapObject("test",10);
+		MapObject o = new MapObject(null,"test",10);
 		m.placeMapObject(o, 10, 10);
 		m.removeMapObject(o);
 		assertNull(m.getTile(10, 10).getMapObject());
@@ -142,6 +142,8 @@ public class MapEntityTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void removeNotOnMap() {
 		m = new MapEntity(VALID_HEIGHT,VALID_WIDTH);
-		m.removeMapObject(null);
+		m.setMapTiles(Terrain.Grass);
+		MapObject o = new MapObject(null,"test",10);
+		m.removeMapObject(o);
 	}
 }

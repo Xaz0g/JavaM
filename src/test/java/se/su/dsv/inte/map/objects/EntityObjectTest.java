@@ -8,7 +8,7 @@ import se.su.dsv.inte.map.objects.EntityObject;
 
 public class EntityObjectTest {
 	
-	EntityObject o = new EntityObject("testEntity", 100, 1, 10);
+	EntityObject o = new EntityObject(null,"testEntity", 100, 1, 10);
 	
 	@Test
 	public void testAttack() {
