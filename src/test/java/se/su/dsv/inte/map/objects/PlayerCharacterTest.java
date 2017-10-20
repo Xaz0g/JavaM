@@ -1,8 +1,13 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map.objects;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import se.su.dsv.inte.items.Inventory;
+import se.su.dsv.inte.items.Item;
+import se.su.dsv.inte.items.Weapon;
+import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class PlayerCharacterTest {
 	

@@ -1,6 +1,10 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.items;
 
 import org.junit.*;
+
+import se.su.dsv.inte.items.Item;
+import se.su.dsv.inte.items.Weapon;
+
 import static org.junit.Assert.*;
 
 public class WeaponTest {

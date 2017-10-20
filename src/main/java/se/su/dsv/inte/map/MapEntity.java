@@ -2,11 +2,8 @@ package se.su.dsv.inte.map;
 
 import java.util.HashMap;
 
-import se.su.dsv.inte.MapObject;
-import se.su.dsv.inte.PlayerCharacter;
-import se.su.dsv.inte.Terrain;
-import se.su.dsv.inte.Tile;
-import se.su.dsv.inte.TileEntity;
+import se.su.dsv.inte.map.objects.MapObject;
+import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class MapEntity implements Map{
 	

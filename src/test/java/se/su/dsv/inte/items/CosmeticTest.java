@@ -1,8 +1,11 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.items;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import se.su.dsv.inte.items.Armor;
+import se.su.dsv.inte.items.Item;
 
 public class CosmeticTest {
 

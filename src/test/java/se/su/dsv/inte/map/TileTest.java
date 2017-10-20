@@ -1,8 +1,14 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import se.su.dsv.inte.items.Inventory;
+import se.su.dsv.inte.map.Terrain;
+import se.su.dsv.inte.map.Tile;
+import se.su.dsv.inte.map.TileEntity;
+import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class TileTest {
 	

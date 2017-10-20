@@ -1,4 +1,6 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map;
+
+import se.su.dsv.inte.map.objects.MapObject;
 
 public interface Tile {
 	void setTerrain(Terrain t);

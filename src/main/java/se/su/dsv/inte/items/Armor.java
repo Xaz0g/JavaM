@@ -1,4 +1,4 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.items;
 
 public class Armor extends Item{
 

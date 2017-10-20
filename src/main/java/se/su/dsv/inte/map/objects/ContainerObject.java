@@ -1,6 +1,8 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map.objects;
 
 import java.util.ArrayList;
+
+import se.su.dsv.inte.items.Item;
 
 public class ContainerObject extends MapObject {
 

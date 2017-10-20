@@ -1,4 +1,7 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map.objects;
+
+import se.su.dsv.inte.items.Inventory;
+import se.su.dsv.inte.items.Item;
 
 public class PlayerCharacter extends EntityObject{
 

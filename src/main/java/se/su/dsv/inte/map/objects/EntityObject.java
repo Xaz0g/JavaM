@@ -1,4 +1,4 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map.objects;
 
 public class EntityObject extends MapObject{
 	

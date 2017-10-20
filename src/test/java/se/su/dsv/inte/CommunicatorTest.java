@@ -2,6 +2,11 @@ package se.su.dsv.inte;
 
 import org.junit.Test;
 
+import se.su.dsv.inte.items.Weapon;
+import se.su.dsv.inte.map.objects.EntityObject;
+import se.su.dsv.inte.map.objects.PlayerCharacter;
+import se.su.dsv.inte.ui.Communicator;
+
 import static org.junit.Assert.assertEquals;
 
 public class CommunicatorTest {

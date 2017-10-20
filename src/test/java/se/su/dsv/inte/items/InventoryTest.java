@@ -1,8 +1,12 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.items;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import se.su.dsv.inte.items.Armor;
+import se.su.dsv.inte.items.Inventory;
+import se.su.dsv.inte.items.Item;
 
 public class InventoryTest {
 	private final static int VALID_SIZE = 10;

@@ -1,4 +1,7 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map;
+
+import se.su.dsv.inte.map.objects.MapObject;
+import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class TileEntity implements Tile{
 	private Terrain t;

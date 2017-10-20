@@ -1,4 +1,7 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.ui;
+
+import se.su.dsv.inte.items.Item;
+import se.su.dsv.inte.map.objects.EntityObject;
 
 public class Communicator {
 

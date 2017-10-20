@@ -1,6 +1,13 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.map.objects;
 
 import org.junit.*;
+
+import se.su.dsv.inte.items.Armor;
+import se.su.dsv.inte.items.Cosmetic;
+import se.su.dsv.inte.items.Item;
+import se.su.dsv.inte.items.Weapon;
+import se.su.dsv.inte.map.objects.ContainerObject;
+
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;

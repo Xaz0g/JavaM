@@ -1,6 +1,7 @@
-package se.su.dsv.inte;
+package se.su.dsv.inte.controllers;
 
 import se.su.dsv.inte.map.MapEntity;
+import se.su.dsv.inte.map.objects.MapObject;
 
 public class MapObjectController {
 	private final MapEntity map;
