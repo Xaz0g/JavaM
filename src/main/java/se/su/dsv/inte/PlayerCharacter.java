@@ -5,9 +5,9 @@ public class PlayerCharacter extends EntityObject{
 	private Inventory inventory;
 
 
-	public PlayerCharacter(String name, double startingHealth, int startingMovePoints, double startingAttack, Inventory inventory) {
+	public PlayerCharacter(String name, double startingHealth, int startingMovePoints, double startingAttack) {
 		super(name,startingHealth,startingMovePoints,startingAttack);
-		this.inventory = inventory;
+		this.inventory = new Inventory(16);
 	}
 
 
@@ -16,13 +16,14 @@ public class PlayerCharacter extends EntityObject{
 		return inventory;
 	}
 
-	public double increaseAttackBonus(Item i) {
+	public void increaseAttackBonus(Item i) {
 
 		double attack = getAttack();
 		
 		attack = attack +i.getAttackBonus();
 		
-		return attack;
+		super.setAttack(attack);
+		
 		
 //		NyAttack = befintligAttack + itemsAttack; 
 //		
@@ -41,13 +42,14 @@ public class PlayerCharacter extends EntityObject{
 
 	}
 	
-	public double increaseArmorBonus(Item i) {
+	public void increaseArmorBonus(Item i) {
 
 		double armor = getArmor();
 		
 		armor = armor +i.getArmorBonus();
 		
-		return armor;
+		super.setArmor(armor);
+		
 	}
 	
 	public void increaseMovementBonus(Item i) {

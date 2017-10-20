@@ -10,41 +10,51 @@ public class PlayerCharacterTest {
 	private Inventory i = new Inventory(3);
 	private String name = "Marie";
 	private int health = 100, movePoints = 1, attack = 10;
-	private Item item;
+	private Item item, item1, item2;
 	
 	@Test
 	public void testValidConstructor() {
-		p = new PlayerCharacter(name, health, movePoints, attack, i);
+		p = new PlayerCharacter(name, health, movePoints, attack);
 		
 		assertEquals(name,p.getName());
 		assertEquals(health,p.getMaxHealth(),0.001);
 		assertEquals(p.getMaxHealth(),p.getCurrentHealth(),0.001);
 		assertEquals(movePoints,p.getMovementPoints());
 		assertEquals(attack, p.getAttack(),0.001);
-		assertEquals(i, p.getInventory());
 		
 	}
 	
 	
 	@Test
 	public void validIncreaseAttackBonus() {
-		p = new PlayerCharacter(name, health, movePoints, attack, i);
+		p = new PlayerCharacter(name, health, movePoints, attack);
 		item = new Weapon("Weapon", 2, 3, 4, 5);
-		assertEquals(item.getAttackBonus() + attack , p.increaseAttackBonus(item), 0.001);
+		p.increaseAttackBonus(item);
+		assertEquals((item.getAttackBonus() + attack) , p.getAttack(), 0.001);
 	}
 	
 	@Test
 	public void validIncreaseArmorBonus() {
-		p = new PlayerCharacter(name, health, movePoints, attack, i);
+		p = new PlayerCharacter(name, health, movePoints, attack);
 		item = new Weapon("Weapon", 2, 3, 4, 5);
-		assertEquals(item.getArmorBonus() + p.getArmor() , p.increaseArmorBonus(item), 0.001);
+		double armor = p.getArmor();
+		p.increaseArmorBonus(item);
+		assertEquals((item.getArmorBonus() + armor) , p.getArmor(), 0.001);
 	}
 	
 	@Test
 	public void validIncreaseMovementBonus() {
-		p = new PlayerCharacter(name, health, movePoints, attack, i);
+		p = new PlayerCharacter(name, health, movePoints, attack);
 		item = new Weapon("Weapon", 2, 3, 4, 5);
-		assertEquals(item.getMovementBonus() + movePoints , p.getMovementPoints());
+		p.increaseMovementBonus(item);
+		assertEquals((item.getMovementBonus() + movePoints) , p.getMovementPoints() );
 	}
 	
+	@Test
+	public void validLookAtInventory() {
+		p = new PlayerCharacter(name, health, movePoints, attack);
+		item1 = new Weapon("Weapon", 2, 3, 4, 5);
+		item2 = new Weapon("Armor", 2, 3, 4, 5);
+		
+	}
 }
