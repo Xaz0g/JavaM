@@ -55,6 +55,9 @@ public class PlayerCharacterTest {
 		p = new PlayerCharacter(name, health, movePoints, attack);
 		item1 = new Weapon("Weapon", 2, 3, 4, 5);
 		item2 = new Weapon("Armor", 2, 3, 4, 5);
+		p.addToInventory(item1);
+		p.addToInventory(item2);
+		
 		
 	}
 }
