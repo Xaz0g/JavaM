@@ -1,14 +1,14 @@
 package se.su.dsv.inte.controllers;
 
-import se.su.dsv.inte.map.MapEntity;
+import se.su.dsv.inte.map.Map;
 import se.su.dsv.inte.map.objects.MapObject;
 
 public class MapObjectController {
-	private final MapEntity map;
+	private final Map map;
 	private final MapObject object;
 	private int row,column;
 	
-	public MapObjectController(MapEntity map, MapObject object) {
+	public MapObjectController(Map map, MapObject object) {
 		this.map = map;
 		this.object = object;
 	}
@@ -19,7 +19,7 @@ public class MapObjectController {
 		}
 	}
 
-	public MapEntity getMap() {
+	public Map getMap() {
 		return map;
 	}
 

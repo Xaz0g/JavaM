@@ -3,13 +3,13 @@ package se.su.dsv.inte.map.objects;
 import java.util.ArrayList;
 
 import se.su.dsv.inte.items.Item;
-import se.su.dsv.inte.map.MapEntity;
+import se.su.dsv.inte.map.Map;
 
 public class ContainerObject extends MapObject {
 
 	ArrayList<Item> storedItems = new ArrayList<Item>();
 
-	public ContainerObject(MapEntity map, String name, double startingHealth, Item... items) {
+	public ContainerObject(Map map, String name, double startingHealth, Item... items) {
 		super(map,name, startingHealth);
 		
 		if(storedItems == null) {

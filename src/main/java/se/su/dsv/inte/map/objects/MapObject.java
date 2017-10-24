@@ -1,7 +1,7 @@
 package se.su.dsv.inte.map.objects;
 
 import se.su.dsv.inte.controllers.MapObjectController;
-import se.su.dsv.inte.map.MapEntity;
+import se.su.dsv.inte.map.Map;
 
 public class MapObject {
 	
@@ -9,7 +9,7 @@ public class MapObject {
 	private String name;
 	private double maxHealth, currentHealth;
 	
-	public MapObject(MapEntity map, String name, double startingHealth) {
+	public MapObject(Map map, String name, double startingHealth) {
 		this.controller = new MapObjectController(map,this);
 		setName(name);
 		setMaxHealth(startingHealth);
