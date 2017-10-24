@@ -2,14 +2,14 @@ package se.su.dsv.inte.map.objects;
 
 import se.su.dsv.inte.items.Inventory;
 import se.su.dsv.inte.items.Item;
-import se.su.dsv.inte.map.MapEntity;
+import se.su.dsv.inte.map.Map;
 
 public class PlayerCharacter extends EntityObject{
 
 	private Inventory inventory;
 
 
-	public PlayerCharacter(MapEntity map, String name, double startingHealth, int startingMovePoints, double startingAttack) {
+	public PlayerCharacter(Map map, String name, double startingHealth, int startingMovePoints, double startingAttack) {
 		super(map,name,startingHealth,startingMovePoints,startingAttack);
 		this.inventory = new Inventory(16);
 	}

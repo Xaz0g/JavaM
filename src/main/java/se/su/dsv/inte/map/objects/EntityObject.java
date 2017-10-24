@@ -1,6 +1,6 @@
 package se.su.dsv.inte.map.objects;
 
-import se.su.dsv.inte.map.MapEntity;
+import se.su.dsv.inte.map.Map;
 
 public class EntityObject extends MapObject{
 	
@@ -10,7 +10,7 @@ public class EntityObject extends MapObject{
 	private double armor;
 	
 	
-	public EntityObject(MapEntity map, String name, double startingHealth, int startingMovementPoints, double startingAttack) {
+	public EntityObject(Map map, String name, double startingHealth, int startingMovementPoints, double startingAttack) {
 		super(map,name,startingHealth);
 		this.movementPoints = startingMovementPoints;
 		this.attack = startingAttack;
