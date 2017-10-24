@@ -45,18 +45,23 @@ public class Map{
 		}
 	}
 	
-//	public void randomizedLakes() {
-//		for(int row = height -1; row > 4; row = row -5) {
-//			for(int column = width -1; column > 4; column = column-5) {
-//				if(Math.random() < 0.3) {
-//					int x= row;
-//					int y= column;
-//					for(x; x)
-//					map[x][y] = new Tile(Terrain.Water);
-//				}
-//			}
-//		}
-//	}
+	public void randomizedLakes() {
+		for(int row = height -1; row > 4; row = row -5) {
+			for(int column = width -1; column > 4; column = column-5) {
+				if(Math.random() < 0.3) {
+					makeLake(row, column);
+				}
+			}
+		}
+	}
+	
+	private void makeLake(int row, int column) {
+		for(int x= row; x >= (x-5); x--) {
+			for(int y= column; y >= (y-5); y--) {
+				map[x][y] = new Tile(Terrain.Water);
+			}
+		}
+	}
 	
 	public int getHeight() {
 		return height;
