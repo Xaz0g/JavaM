@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="se.su.dsv.inte.JavaM" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/JavaM.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="482" y="175"/>    
+    <position height="-1" width="-1" x="395" y="-45"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="se.su.dsv.inte.controllers.MapObjectController" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/controllers/MapObjectController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="951" y="577"/>    
+    <position height="-1" width="-1" x="970" y="534"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="se.su.dsv.inte.items.Armor" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/items/Armor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-31" y="641"/>    
+    <position height="-1" width="-1" x="424" y="319"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="se.su.dsv.inte.items.Inventory" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/items/Inventory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="265" y="853"/>    
+    <position height="-1" width="-1" x="236" y="878"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </interface>  
   <class id="9" language="java" name="se.su.dsv.inte.map.MapEntity" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/map/MapEntity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="709" y="290"/>    
+    <position height="-1" width="-1" x="711" y="248"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </enumeration>  
   <interface id="11" language="java" name="se.su.dsv.inte.map.Tile" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/map/Tile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1071" y="140"/>    
+    <position height="-1" width="-1" x="1067" y="152"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="se.su.dsv.inte.map.objects.ContainerObject" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/map/objects/ContainerObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="596" y="610"/>    
+    <position height="-1" width="-1" x="614" y="595"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="se.su.dsv.inte.map.objects.Enemy" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/map/objects/Enemy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1449" y="714"/>    
+    <position height="-1" width="-1" x="1161" y="1175"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="se.su.dsv.inte.map.objects.EntityObject" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/map/objects/EntityObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1201" y="995"/>    
+    <position height="-1" width="-1" x="1162" y="877"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="se.su.dsv.inte.map.objects.MapObject" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/map/objects/MapObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="728" y="953"/>    
+    <position height="-1" width="-1" x="612" y="893"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="se.su.dsv.inte.map.objects.PlayerCharacter" project="JavaM" 
     file="/JavaM/src/main/java/se/su/dsv/inte/map/objects/PlayerCharacter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="222" y="1167"/>    
+    <position height="-1" width="-1" x="664" y="1199"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

@@ -6,6 +6,7 @@ import se.su.dsv.inte.map.objects.MapObject;
 public class MapObjectController {
 	private final MapEntity map;
 	private final MapObject object;
+	private int row,column;
 	
 	public MapObjectController(MapEntity map, MapObject object) {
 		this.map = map;
@@ -17,11 +18,6 @@ public class MapObjectController {
 			map.removeMapObject(object);
 		}
 	}
-	
-	public boolean moveOnMap() {
-		
-		return false;
-	}
 
 	public MapEntity getMap() {
 		return map;
@@ -31,5 +27,16 @@ public class MapObjectController {
 		return object;
 	}
 	
-	
+	public void setMapPosition(int row, int column) {
+		this.row = row;
+		this.column = column;
+	}
+
+	public int getRow() {
+		return row;
+	}
+
+	public int getColumn() {
+		return column;
+	}
 }
