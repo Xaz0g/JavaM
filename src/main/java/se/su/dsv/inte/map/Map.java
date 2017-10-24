@@ -30,7 +30,7 @@ public class Map{
 	public void setMapTiles(Terrain t) {
 		for(int row = 0; row < height; row++) {
 			for(int column = 0; column < width; column++) {
-				map[row][column] = new TileEntity(t);
+				map[row][column] = new Tile(t);
 			}
 		}
 	}
@@ -69,8 +69,9 @@ public class Map{
 		checkMapPos(toRow,toColumn);
 		
 		if(map[fromRow][fromColumn].isOccupied()) {
-			map[toRow][toColumn].setMapObject(map[fromRow][fromColumn].getMapObject());
-			objectsOnMap.replace(map[fromRow][fromColumn].getMapObject(), map[toRow][toColumn]);
+			MapObject o = map[fromRow][fromColumn].getMapObject();
+			map[toRow][toColumn].setMapObject(o);
+			objectsOnMap.replace(o, map[toRow][toColumn]);
 			map[fromRow][fromColumn].setMapObject(null);
 		} else {
 			throw new IllegalArgumentException("No MapObject to move!");

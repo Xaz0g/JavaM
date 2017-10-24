@@ -79,7 +79,7 @@ public class MapEntityTest {
 	@Test
 	public void validSetTilePosition() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new TileEntity(Terrain.Grass);
+		t = new Tile(Terrain.Grass);
 		m.setTile(t, 2,2);
 		assertEquals(t,m.getTile(2,2));
 	}
@@ -87,7 +87,7 @@ public class MapEntityTest {
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileRowNegative() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new TileEntity(Terrain.Grass);
+		t = new Tile(Terrain.Grass);
 		m.setTile(t, NEGATIVE, VALID_COLUMN);
 
 	}
@@ -95,7 +95,7 @@ public class MapEntityTest {
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileColumnNegative() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new TileEntity(Terrain.Grass);
+		t = new Tile(Terrain.Grass);
 		m.setTile(t, VALID_ROW, NEGATIVE);
 
 	}
@@ -103,7 +103,7 @@ public class MapEntityTest {
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileRowMax() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new TileEntity(Terrain.Grass);
+		t = new Tile(Terrain.Grass);
 		m.setTile(t, m.getHeight(), VALID_COLUMN);
 
 	}
@@ -111,7 +111,7 @@ public class MapEntityTest {
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileColumnMax() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new TileEntity(Terrain.Grass);
+		t = new Tile(Terrain.Grass);
 		m.setTile(t, VALID_ROW, m.getWidth());
 	}
 

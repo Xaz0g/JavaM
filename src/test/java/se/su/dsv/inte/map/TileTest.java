@@ -7,7 +7,7 @@ import org.junit.Test;
 import se.su.dsv.inte.items.Inventory;
 import se.su.dsv.inte.map.Terrain;
 import se.su.dsv.inte.map.Tile;
-import se.su.dsv.inte.map.TileEntity;
+import se.su.dsv.inte.map.Tile;
 import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class TileTest {
@@ -18,45 +18,45 @@ public class TileTest {
 	
 	@Test
 	public void testIsNotOccupied() {
-		Tile t = new TileEntity(grass);
+		Tile t = new Tile(grass);
 		assertEquals(false, t.isOccupied());
 	}
 	
 	@Test
 	public void testGetLegalTerrain() {
-		Tile t = new TileEntity(grass);
+		Tile t = new Tile(grass);
 		assertNotNull(t.getTerrain());
 	}
 	
 	@Test
 	public void testSetLegalTerrain() {
-		Tile t = new TileEntity(grass);
+		Tile t = new Tile(grass);
 		t.setTerrain(Terrain.Water);
 		assertEquals(Terrain.Water, t.getTerrain());
 	}
 	
 	@Test(expected = NullPointerException.class)
 	public void testSetNullTerrain(){
-		Tile t = new TileEntity(null);
+		Tile t = new Tile(null);
 	}
 	
 	@Test
 	public void testSetNullPlayer() {
-		Tile t = new TileEntity(grass);
+		Tile t = new Tile(grass);
 		t.setMapObject(null);
 		assertEquals(null,t.getMapObject());
 	}
 	
 	@Test
 	public void testSetValidPlayer() {		// hmm onödigt att testa för både null och validPlayer?
-		Tile t = new TileEntity(grass);
+		Tile t = new Tile(grass);
 		t.setMapObject(legalPlayer);
 		assertEquals(legalPlayer,t.getMapObject());
 	}
 	
 	@Test 
 	public void testContainsValidPlayer() {
-		Tile t = new TileEntity(grass);
+		Tile t = new Tile(grass);
 		t.setMapObject(legalPlayer);
 		assertTrue(t.containsPlayer());
 	}

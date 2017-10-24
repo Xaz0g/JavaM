@@ -1,13 +1,45 @@
 package se.su.dsv.inte.map;
 
 import se.su.dsv.inte.map.objects.MapObject;
+import se.su.dsv.inte.map.objects.PlayerCharacter;
 
-public interface Tile {
-	void setTerrain(Terrain t);
-	Terrain getTerrain();
-	boolean isOccupied();
-	boolean containsPlayer();
-	MapObject getMapObject(); 
-	void setMapObject(MapObject o);
+public class Tile {
+	private Terrain t;
+	private MapObject mO = null;
 	
+	public Tile(Terrain t){
+		setTerrain(t);
+	}
+	
+	public Terrain getTerrain() {
+		return t;
+	}
+	
+	public void setTerrain(Terrain t) {
+		if(t != null) {
+			this.t= t;
+		}else {
+			throw new NullPointerException();
+		}
+	}
+
+	public boolean isOccupied() {
+		return mO == null ? false : true; 
+	}
+
+	public MapObject getMapObject() {
+		
+		return mO;
+	}
+
+	public void setMapObject(MapObject o) {
+		mO = o;
+	}
+
+	public boolean containsPlayer() {
+		if(isOccupied() && mO instanceof PlayerCharacter)
+		return true;
+		
+		return false;
+	}
 }
