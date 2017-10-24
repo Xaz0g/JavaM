@@ -46,8 +46,8 @@ public class Map{
 	}
 	
 	public void randomizedLakes() {
-		for(int row = height -1; row > 4; row = row -5) {
-			for(int column = width -1; column > 4; column = column-5) {
+		for(int row = 0; row < height - 5; row += 5) { 
+			for(int column = 0; column < width - 5; column += 5) { 
 				if(Math.random() < 0.3) {
 					makeLake(row, column);
 				}
@@ -56,8 +56,8 @@ public class Map{
 	}
 	
 	private void makeLake(int row, int column) {
-		for(int x= row; x >= (x-5); x--) {
-			for(int y= column; y >= (y-5); y--) {
+		for(int x = row; x < row + 4; x++) { 
+			for(int y = column; y < column + 4; y++) {
 				map[x][y] = new Tile(Terrain.Water);
 			}
 		}
