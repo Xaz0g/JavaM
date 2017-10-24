@@ -123,7 +123,7 @@ public class Map{
 	public void printMap() {
 		for(Tile[] row : map) {
 			for(Tile tile : row) {
-				System.out.print(tile.isOccupied() ? "X " : "0 ");
+				System.out.print(tile.isOccupied() ? "X " : tile.getTerrain() == Terrain.Grass ? "G " : "B ");
 			}
 			System.out.println();
 		}
