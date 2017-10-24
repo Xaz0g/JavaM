@@ -35,6 +35,10 @@ public class Map{
 		}
 	}
 	
+	public void randomizeWaterSpots() {		//Implement
+		
+	}
+	
 	public int getHeight() {
 		return height;
 	}
