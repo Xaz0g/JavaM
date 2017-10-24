@@ -84,7 +84,6 @@ public class Map{
 		} if(!objectsOnMap.containsKey(o)) {
 			throw new IllegalArgumentException("Object not on map!");
 		}
-		
 		objectsOnMap.get(o).setMapObject(null);
 		objectsOnMap.remove(o);
 	}

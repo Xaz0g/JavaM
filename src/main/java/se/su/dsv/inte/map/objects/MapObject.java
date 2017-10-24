@@ -58,7 +58,6 @@ public class MapObject {
 		} else if(currentHealth > maxHealth) {
 			currentHealth = maxHealth;
 		}
-		
 		if(controller.getMap() != null) {
 			controller.removeIfDestroyed();
 		}
