@@ -35,9 +35,28 @@ public class Map{
 		}
 	}
 	
-	public void randomizeWaterSpots() {		//Implement
+	public void randomizeWaterSpots() {
 		
+		for(int row = 0; row < height; row++){
+			for(int column = 0; column < width; column++) {
+				if(Math.random()< 0.5)
+					map[row][column] = new Tile(Terrain.Water);
+			}
+		}
 	}
+	
+//	public void randomizedLakes() {
+//		for(int row = height -1; row > 4; row = row -5) {
+//			for(int column = width -1; column > 4; column = column-5) {
+//				if(Math.random() < 0.3) {
+//					int x= row;
+//					int y= column;
+//					for(x; x)
+//					map[x][y] = new Tile(Terrain.Water);
+//				}
+//			}
+//		}
+//	}
 	
 	public int getHeight() {
 		return height;
