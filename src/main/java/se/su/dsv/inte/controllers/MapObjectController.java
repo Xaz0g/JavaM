@@ -17,6 +17,10 @@ public class MapObjectController {
 			map.removeMapObject(object);
 		}
 	}
+	
+	public boolean moveObject() {
+		return false;
+	}
 
 	public MapEntity getMap() {
 		return map;
