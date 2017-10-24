@@ -18,7 +18,8 @@ public class MapObjectController {
 		}
 	}
 	
-	public boolean moveObject() {
+	public boolean moveOnMap() {
+		
 		return false;
 	}
 
