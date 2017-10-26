@@ -2,8 +2,8 @@ package se.su.dsv.inte.map;
 
 import java.util.HashMap;
 
-import se.su.dsv.inte.map.objects.MapObject;
-import se.su.dsv.inte.map.objects.PlayerCharacter;
+import se.su.dsv.inte.map.objects.*;
+import se.su.dsv.inte.controllers.*;
 
 public class Map{
 	
@@ -90,6 +90,10 @@ public class Map{
 		checkMapPos(row,column);
 		map[row][column].setMapObject(mObject);
 		objectsOnMap.put(mObject, map[row][column]);
+		
+		if(mObject instanceof EntityObject) {
+			((EntityController) mObject.getController()).setPosition(row,column);
+		}
 	}
 	
 	public void moveMapObject(int fromRow, int fromColumn, int toRow, int toColumn) {

@@ -16,6 +16,13 @@ public class MapObject {
 		this.currentHealth = this.maxHealth;
 	}
 	
+	public MapObject(MapObjectController moc, String name, double startingHealth) {
+		this.controller = moc;
+		setName(name);
+		setMaxHealth(startingHealth);
+		this.currentHealth = this.maxHealth;
+	}
+	
 	public String getName() {
 		return name;
 	}
