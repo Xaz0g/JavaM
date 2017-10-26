@@ -22,6 +22,7 @@ public class MapObjectControllerTest {
 	public void testControllMOController() {
 		assertEquals(testMap,c.getMap());
 		assertEquals(o,c.getObject());
+		assertEquals(c,o.getController());
 	}
 	
 	@Test

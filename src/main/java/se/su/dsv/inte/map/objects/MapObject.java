@@ -5,7 +5,7 @@ import se.su.dsv.inte.map.Map;
 
 public class MapObject {
 	
-	private final MapObjectController controller;
+	private MapObjectController controller;
 	private String name;
 	private double maxHealth, currentHealth;
 	
@@ -16,11 +16,14 @@ public class MapObject {
 		this.currentHealth = this.maxHealth;
 	}
 	
-	public MapObject(MapObjectController moc, String name, double startingHealth) {
-		this.controller = moc;
+	public MapObject(String name, double startingHealth) {
 		setName(name);
 		setMaxHealth(startingHealth);
 		this.currentHealth = this.maxHealth;
+	}
+	
+	protected void setController(MapObjectController controller) {
+		this.controller = controller;
 	}
 	
 	public String getName() {
@@ -65,8 +68,8 @@ public class MapObject {
 		} else if(currentHealth > maxHealth) {
 			currentHealth = maxHealth;
 		}
-		if(controller.getMap() != null) {
-			controller.removeIfDestroyed();
+		if(controller.getMap() != null && isDestroyed()) {
+			controller.removeFromMap();
 		}
 	}
 	

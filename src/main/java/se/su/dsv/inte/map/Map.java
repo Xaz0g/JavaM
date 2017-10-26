@@ -90,10 +90,6 @@ public class Map{
 		checkMapPos(row,column);
 		map[row][column].setMapObject(mObject);
 		objectsOnMap.put(mObject, map[row][column]);
-		
-		if(mObject instanceof EntityObject) {
-			((EntityController) mObject.getController()).setPosition(row,column);
-		}
 	}
 	
 	public void moveMapObject(int fromRow, int fromColumn, int toRow, int toColumn) {

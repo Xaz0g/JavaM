@@ -1,20 +1,20 @@
 package se.su.dsv.inte.map.objects;
 
+import se.su.dsv.inte.controllers.EntityController;
 import se.su.dsv.inte.map.Map;
 
 public class EntityObject extends MapObject{
 	
 	private int movementPoints;
-	private int movesMade;
 	private double attack;
 	private double armor;
 	
 	
 	public EntityObject(Map map, String name, double startingHealth, int startingMovementPoints, double startingAttack) {
-		super(map,name,startingHealth);
+		super(name,startingHealth);
+		setController(new EntityController(map,this));
 		this.movementPoints = startingMovementPoints;
 		this.attack = startingAttack;
-		movesMade = 0;
 	}
 	
 	public void attack(MapObject o) {
@@ -37,14 +37,6 @@ public class EntityObject extends MapObject{
 		double damageModifier = 1 - (armor / 100);
 		double damageTaken = damageModifier * damage;
 		modifyCurrentHealth(-damageTaken);
-	}
-	
-	public void resetMovesMade() {
-		movesMade = 0;
-	}
-
-	public int getMovesMade() {
-		return movesMade;
 	}
 
 	public int getMovementPoints() {

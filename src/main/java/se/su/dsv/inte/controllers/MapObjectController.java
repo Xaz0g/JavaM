@@ -12,10 +12,8 @@ public class MapObjectController {
 		this.object = object;
 	}
 	
-	public void removeIfDestroyed() {
-		if(object.isDestroyed()) {
-			map.removeMapObject(object);
-		}
+	public void removeFromMap() {
+		map.removeMapObject(object);
 	}
 
 	public Map getMap() {
