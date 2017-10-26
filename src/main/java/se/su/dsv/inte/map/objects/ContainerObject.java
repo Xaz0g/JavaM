@@ -1,5 +1,6 @@
 package se.su.dsv.inte.map.objects;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import se.su.dsv.inte.items.Item;
@@ -49,6 +50,7 @@ public class ContainerObject extends MapObject {
 	public void lookInContainer() {
 
 	}
+
 
 	//	toArray
 	//	emptyList

@@ -20,7 +20,7 @@ public class EntityObject extends MapObject{
 		// Kontrollerar om objektet som passas med finns, sen om
 		// det är av typen EntityObject vilket säger om det är en fiende
 		// eller något annat objekt i.e kista, träd eller sten.
-		
+
 		if(o == null) {
 			throw new IllegalArgumentException("Cannot attack null!");
 		}

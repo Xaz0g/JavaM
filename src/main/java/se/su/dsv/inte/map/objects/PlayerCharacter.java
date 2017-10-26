@@ -23,28 +23,28 @@ public class PlayerCharacter extends EntityObject{
 					temp.addAll(cO.getStoredItems().subList(0, inventory.getSize()));
 					
 					for(int i = 0; i < inventory.getSize(); i++) {
-						cO.storedItems.set(i, checkItem(i)); 	// kopiera över items i Inventory till motsvarande plats i ContainerObject
+						cO.getStoredItems().set(i, checkItem(i)); 	// kopiera över items i Inventory till motsvarande plats i ContainerObject
 					}
 					inventory = new Inventory(temp);
 		}else {
-			if(cO.storedItems.size() > inventory.getSpaceLeft()) { //Om antalet lediga platser i inventory är färre än sakerna i loot
+			if(cO.getStoredItems().size() > inventory.getSpaceLeft()) { //Om antalet lediga platser i inventory är färre än sakerna i loot
 				int max = inventory.getSpaceLeft();
 				
 				for(int i = 0; i < max; i ++) {
-					inventory.add(cO.storedItems.remove(0));
+					inventory.add(cO.getStoredItems().remove(0));
 				}
 				
 			}else {	//Om antalet lediga platser i inventory är fler än sakerna i loot
 				
-				for(Item item : cO.storedItems) {
+				for(Item item : cO.getStoredItems()) {
 					inventory.add(item);
 				}
 				
 			}
 		}
 	}
-	
-	
+
+
 //	public Inventory getInventory() {
 //
 //		return inventory;
@@ -58,33 +58,16 @@ public class PlayerCharacter extends EntityObject{
 
 		double attack = getAttack();
 		
-		attack = attack +i.getAttackBonus();
+		attack = attack + i.getAttackBonus();
 		
 		super.setAttack(attack);
-		
-		
-//		NyAttack = befintligAttack + itemsAttack; 
-//		
-//		// Kollar befintlig styrka 
-//		double currentAttack = getAttack();
-//
-//		// Plockar upp item med +3 styrka 
-//		inventory.add(i);
-//
-//		// Kollar ny styrka 
-//		double newAttack = getAttack();
-//
-//		// Kontrollerar om styrkan har ökats från den befintliga till den nya 
-//		if (currentAttack < newAttack){ return true; }
-//		else {return false;}
-
 	}
 	
 	public void increaseArmorBonus(Item i) {
 
 		double armor = getArmor();
 		
-		armor = armor +i.getArmorBonus();
+		armor = armor + i.getArmorBonus();
 		
 		super.setArmor(armor);
 		
@@ -94,7 +77,7 @@ public class PlayerCharacter extends EntityObject{
 
 		int movementPoints = getMovementPoints();
 		
-		movementPoints = movementPoints +i.getMovementBonus();
+		movementPoints = movementPoints + i.getMovementBonus();
 		
 		super.setMovementPoints(movementPoints);
 	}
@@ -102,7 +85,7 @@ public class PlayerCharacter extends EntityObject{
 	private void decreaseAttackBonus(Item i) {
 		double attack = getAttack();
 		
-		attack = attack -i.getAttackBonus();
+		attack = attack - i.getAttackBonus();
 		
 		super.setAttack(attack);
 	}
@@ -111,7 +94,7 @@ public class PlayerCharacter extends EntityObject{
 		
 		double armor = getArmor();
 		
-		armor = armor -i.getArmorBonus();
+		armor = armor - i.getArmorBonus();
 		
 		super.setArmor(armor);
 	}
@@ -120,7 +103,7 @@ public class PlayerCharacter extends EntityObject{
 		
 		int movementPoints = getMovementPoints();
 		
-		movementPoints = movementPoints -i.getMovementBonus();
+		movementPoints = movementPoints - i.getMovementBonus();
 		
 		super.setMovementPoints(movementPoints);
 	}
