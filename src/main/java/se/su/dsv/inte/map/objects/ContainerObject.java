@@ -7,25 +7,24 @@ import se.su.dsv.inte.map.Map;
 
 public class ContainerObject extends MapObject {
 
-	ArrayList<Item> storedItems = new ArrayList<Item>();
+	private ArrayList<Item> storedItems = new ArrayList<Item>();
 
 	public ContainerObject(Map map, String name, double startingHealth, Item... items) {
 		super(map,name, startingHealth);
 		
-		if(storedItems == null) {
-			throw new NullPointerException();
-		}else {
+//		if(storedItems == null) {
+//			throw new NullPointerException();
+//		}else {
 
 			for(Item i: items) {
 				if(i == null) {
 					throw new IllegalArgumentException();
 				}else {
-
 					storedItems.add(i);
 				}
 			}
 
-		}
+//		}
 	}
 
 	public ArrayList<Item> getStoredItems(){
@@ -33,11 +32,13 @@ public class ContainerObject extends MapObject {
 		return storedItems;
 	}
 
-	public void takeItemFromContainer() {
-		
+	public Item takeItemFromContainer(int index) {
+		Item i = storedItems.get(index);
+
+		return i;
 	}
 	
-	public void emptyListStoredItems() {
+	public void emptyListOfStoredItems() {
 		storedItems.clear();
 	}
 

@@ -32,7 +32,7 @@ public class MapObject {
 		if(cleanedName.equals("")) {
 			throw new IllegalArgumentException("MapObject name cannot be empty!");
 		}
-		this.name = name;
+		this.name = cleanedName;
 	}
 	
 	public double getMaxHealth() {
@@ -41,7 +41,7 @@ public class MapObject {
 	
 	public void setMaxHealth(double newMaxHealth) {
 		if(newMaxHealth < 1) {
-			throw new IllegalArgumentException("MapObject max health must be greater than zero!");
+			throw new IllegalArgumentException("MapObject max health must be greater than one!");
 		}
 		this.maxHealth = newMaxHealth;
 	}
@@ -52,7 +52,7 @@ public class MapObject {
 	
 	public void setCurrentHealth(double newCurrentHealth) {
 		if(newCurrentHealth < 0 || newCurrentHealth > maxHealth) {
-			throw new IllegalArgumentException("MapObject current health cannot be greater than max health or less than zero!");
+			throw new IllegalArgumentException("Current health cannot be < 0 or > max health !");
 		}
 		this.currentHealth = newCurrentHealth;
 	}
@@ -65,13 +65,14 @@ public class MapObject {
 		} else if(currentHealth > maxHealth) {
 			currentHealth = maxHealth;
 		}
-		if(controller.getMap() != null) {
+
+		//if(controller.getMap() != null) {
 			controller.removeIfDestroyed();
-		}
+		//}
 	}
 	
 	public boolean isDestroyed() {
-		return currentHealth == 0 ? true : false;
+		return currentHealth == 0;
 	}
 
 	public MapObjectController getController() {

@@ -9,7 +9,7 @@ public class JavaM {
 		Map m = new Map(25,25);
 		
 		m.setMapTiles(Terrain.Grass);
-		m.randomizedLakes();;
+		m.randomizedLakes(5);;
 		m.printMap();
 	}
 }

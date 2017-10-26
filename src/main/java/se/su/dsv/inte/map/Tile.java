@@ -4,41 +4,41 @@ import se.su.dsv.inte.map.objects.MapObject;
 import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class Tile {
-	private Terrain t;
-	private MapObject mO = null;
+	private Terrain terrain;
+	private MapObject mapObject = null;
 	
 	public Tile(Terrain t){
 		setTerrain(t);
 	}
 	
 	public Terrain getTerrain() {
-		return t;
+		return terrain;
 	}
 	
 	public void setTerrain(Terrain t) {
 		if(t != null) {
-			this.t= t;
+			this.terrain = t;
 		}else {
-			throw new NullPointerException();
+			throw new NullPointerException("The terrain can'terrain be null");
 		}
 	}
 
 	public boolean isOccupied() {
-		return mO == null ? false : true; 
+		return mapObject != null;
 	}
 
 	public MapObject getMapObject() {
 		
-		return mO;
+		return mapObject;
 	}
 
 	public void setMapObject(MapObject o) {
-		mO = o;
+		mapObject = o;
 	}
 
 	public boolean containsPlayer() {
-		if(isOccupied() && mO instanceof PlayerCharacter)
-		return true;
+		if(isOccupied() && (mapObject instanceof PlayerCharacter))
+			return true;
 		
 		return false;
 	}

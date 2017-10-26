@@ -10,45 +10,56 @@ public class Map{
 	private final int height; // x = row
 	private final int width;  // y = column
 
-	private final Tile [][] map;
+	private final Tile [][] tiles;
 	private final HashMap<MapObject,Tile> objectsOnMap;
 	
-	public Map(int x, int y) {
-		if(x > 0 && y > 0){
-			this.height = x;
-			this.width = y;
+	public Map(int height, int width) {
+		if(height > 0 && width > 0){
+			this.height = height;
+			this.width = width;
 
-			map = new Tile[height][width];
+			tiles = new Tile[this.height][this.width];
 			
 			objectsOnMap = new HashMap<MapObject,Tile>();
 
 		}else {
-			throw new IllegalArgumentException(); 
+			throw new IllegalArgumentException("Not a valid entry!");
 		}
 	}
 	
 	public void setMapTiles(Terrain t) {
+
+
 		for(int row = 0; row < height; row++) {
 			for(int column = 0; column < width; column++) {
-				map[row][column] = new Tile(t);
+				tiles[row][column] = new Tile(t);
 			}
 		}
 	}
 	
-	public void randomizeWaterSpots() {
-		
+	private void randomizeWaterSpots(double probability) {
+
+
+		// Går igenom hela matrisen av Tiles samt med en 50%
+		// chans byter underlaget från gräs till vatten i en ny Tile
+
+		// probability är sannolikheten att det blir en vatten-Tile
 		for(int row = 0; row < height; row++){
 			for(int column = 0; column < width; column++) {
-				if(Math.random()< 0.5)
-					map[row][column] = new Tile(Terrain.Water);
+				if(Math.random()< probability)
+					tiles[row][column] = new Tile(Terrain.Water);
 			}
 		}
 	}
 	
-	public void randomizedLakes() {
+	public void randomizedLakes(double probability, int size) {
+
+		// Som ovanstående metod genereras Tiles av vatten fast med
+		// en fördefinierad storlek så man får sammanhängande sjöar
+
 		for(int row = 0; row < height - 5; row += 5) { 
 			for(int column = 0; column < width - 5; column += 5) { 
-				if(Math.random() < 0.3) {
+				if(Math.random() < probability) {
 					makeLake(row, column);
 				}
 			}
@@ -58,7 +69,7 @@ public class Map{
 	private void makeLake(int row, int column) {
 		for(int x = row; x < row + 4; x++) { 
 			for(int y = column; y < column + 4; y++) {
-				map[x][y] = new Tile(Terrain.Water);
+				tiles[x][y] = new Tile(Terrain.Water);
 			}
 		}
 	}
@@ -73,23 +84,24 @@ public class Map{
 	
 	public Tile getTile(int row, int column) {
 		checkMapPos(row,column);
-		return map[row][column];
+		return tiles[row][column];
 	}
 
 	public void setTile(Tile tile, int row, int column) {
 		checkMapPos(row,column);
-		map[row][column] = tile;
+		tiles[row][column] = tile;
 	}
-	
-	public PlayerCharacter getPlayerCharacter() {
-		PlayerCharacter pChar = null;
-		return pChar;
-	}
+
 	
 	public void placeMapObject(MapObject mObject, int row, int column) {
+
+		// Först tilldelas matrisens position med det medpassade MapObjectet.
+		// sen läggs objektet samt positionen i matrisen in i en hash-map
+		// där nyckeln är MapObjectet med positionen som värde
+
 		checkMapPos(row,column);
-		map[row][column].setMapObject(mObject);
-		objectsOnMap.put(mObject, map[row][column]);
+		tiles[row][column].setMapObject(mObject);
+		objectsOnMap.put(mObject, tiles[row][column]);
 		
 		if(mObject instanceof EntityObject) {
 			((EntityController) mObject.getController()).setPosition(row,column);
@@ -100,11 +112,11 @@ public class Map{
 		checkMapPos(fromRow,fromColumn);
 		checkMapPos(toRow,toColumn);
 		
-		if(map[fromRow][fromColumn].isOccupied()) {
-			MapObject o = map[fromRow][fromColumn].getMapObject();
-			map[toRow][toColumn].setMapObject(o);
-			objectsOnMap.replace(o, map[toRow][toColumn]);
-			map[fromRow][fromColumn].setMapObject(null);
+		if(tiles[fromRow][fromColumn].isOccupied()) {
+			MapObject o = tiles[fromRow][fromColumn].getMapObject();
+			tiles[toRow][toColumn].setMapObject(o);
+			objectsOnMap.replace(o, tiles[toRow][toColumn]);
+			tiles[fromRow][fromColumn].setMapObject(null);
 		} else {
 			throw new IllegalArgumentException("No MapObject to move!");
 		}
@@ -112,7 +124,7 @@ public class Map{
 	
 	public void removeMapObject(MapObject o) {
 		if(o == null) {
-			throw new IllegalArgumentException("Cannot remove null from map!");
+			throw new IllegalArgumentException("Cannot remove null from tiles!");
 		} if(objectsOnMap.containsKey(o)) {
 			objectsOnMap.get(o).setMapObject(null);
 			objectsOnMap.remove(o);
@@ -120,18 +132,23 @@ public class Map{
 	}
 	
 	private void checkMapPos(int row, int column) {
+
+		// En metod som används i flera andra metoder som ser om den
+		// medskickade positionen till matrisen finns eller inte.
+
 		if(row < 0 || row >= height) {
 			throw new IndexOutOfBoundsException("Invalid row!");
 		}
 		if(column < 0 || column >= width) {
-			throw new IndexOutOfBoundsException("Invalid column!!");
+			throw new IndexOutOfBoundsException("Invalid column!");
 		}
 	}
 	
 	public void printMap() {
-		for(Tile[] row : map) {
+		for(Tile[] row : tiles) {
 			for(Tile tile : row) {
-				System.out.print(tile.isOccupied() ? "X " : tile.getTerrain() == Terrain.Grass ? "G " : "B ");
+				System.out.print(tile.isOccupied() ? "X " :
+						tile.getTerrain() == Terrain.Grass ? "G " : "B ");
 			}
 			System.out.println();
 		}
