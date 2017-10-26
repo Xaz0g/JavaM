@@ -41,7 +41,8 @@ public class CommunicatorTest {
                     damageAbsorbed = enemyName + " just absorbed " + absorbedDamage + " (" + enemyArmor + ").",
                     youveDied = "You've died.",
                     youveBeenKilledBy = enemyName + " killed you.",
-                    youveKilledEnemy = "You've killed " + enemyName;
+                    youveKilledEnemy = "You've killed " + enemyName,
+                    youreNowAttacking = "You're now attacking " + enemyName + "!";
 
     public EntityObject newCharacter(){
         return new PlayerCharacter(null,"Victor", 100,10, 10);
@@ -125,5 +126,11 @@ public class CommunicatorTest {
         assertEquals(youveKilledEnemy, com.youveKilledEnemy(enemy));
     }
 
+    @Test
+    public void youreNowAttacking(){
+        Communicator com = new Communicator();
+        EntityObject enemy = newEnemy();
+        assertEquals(youreNowAttacking, com.youreNowAttacking(enemy));
 
+    }
 }

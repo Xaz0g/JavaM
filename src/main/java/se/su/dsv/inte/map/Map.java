@@ -75,7 +75,7 @@ public class Map{
 		checkMapPos(row,column);
 		return map[row][column];
 	}
-	
+
 	public void setTile(Tile tile, int row, int column) {
 		checkMapPos(row,column);
 		map[row][column] = tile;
