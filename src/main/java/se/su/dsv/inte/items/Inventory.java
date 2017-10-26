@@ -45,11 +45,20 @@ public class Inventory{
 
 	public boolean removeItem(int i) {
 		container[i] = null;
-		nextItemIndex = --nextItemIndex;
+		nextItemIndex--;
 		
 		adaptArray(i);
 		
 		return container[i] == null ? true : false;
+	}
+	
+	public boolean remove(Item item) {
+		for(int i = nextItemIndex -1; i >= 0; i--) {
+			if(container[i].equals(item)) {
+				return removeItem(i);
+			}
+		}
+		return false;
 	}
 
 	private void adaptArray(int i) {

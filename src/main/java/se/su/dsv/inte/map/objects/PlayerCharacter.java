@@ -15,9 +15,13 @@ public class PlayerCharacter extends EntityObject{
 	}
 
 
-	public Inventory getInventory() {
-
-		return inventory;
+//	public Inventory getInventory() {
+//
+//		return inventory;
+//	}
+	
+	public Item checkItem(int i) {
+		return inventory.checkItem(i);
 	}
 
 	public void increaseAttackBonus(Item i) {
@@ -65,6 +69,32 @@ public class PlayerCharacter extends EntityObject{
 		super.setMovementPoints(movementPoints);
 	}
 
+	private void decreaseAttackBonus(Item i) {
+		double attack = getAttack();
+		
+		attack = attack -i.getAttackBonus();
+		
+		super.setAttack(attack);
+	}
+	
+	private void decreaseArmorBonus(Item i) {
+		
+		double armor = getArmor();
+		
+		armor = armor -i.getArmorBonus();
+		
+		super.setArmor(armor);
+	}
+	
+	private void decreaseMovementBonus(Item i) {
+		
+		int movementPoints = getMovementPoints();
+		
+		movementPoints = movementPoints -i.getMovementBonus();
+		
+		super.setMovementPoints(movementPoints);
+	}
+
 	public void addToInventory(Item i) {
 		
 		inventory.add(i);
@@ -78,17 +108,24 @@ public class PlayerCharacter extends EntityObject{
 
 	}
 
-	public void lookAtItemInInventory() {
+//	public void lookAtItemInInventory() {
+//
+//	}
 
+	public void removeItemFromInventory(Item i) {
+		
+		if(inventory.remove(i)){
+			decreaseAttackBonus(i);
+			
+			decreaseArmorBonus(i);
+			
+			decreaseMovementBonus(i);
+		}
 	}
 
-	public void removeItemFromInventory() {
-
-	}
-
-	public void checkPlaceInInventory() { // se om det finns platser kvar i inventory
-
-	}
+//	public void checkPlaceInInventory() {
+//
+//	}
 
 
 	
