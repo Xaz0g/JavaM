@@ -4,11 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import se.su.dsv.inte.map.Map;
 import se.su.dsv.inte.map.objects.MapObject;
 
 public class MapObjectTest {
 	
-	MapObject o = new MapObject(null,"Axel",100);
+	private Map m = new Map(10,10);
+	private MapObject o = new MapObject(m,"Axel",100);
+	
 	
 	@Test
 	public void testValidNameAndHealth() {
@@ -19,22 +22,22 @@ public class MapObjectTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testEmptyName() {
-		o = new MapObject(null,"",100);
+		o = new MapObject(m,"",100);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testBlankspaceName() {
-		o = new MapObject(null,"      ",100);
+		o = new MapObject(m,"      ",100);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testZeroStartingHealth() {
-		o = new MapObject(null,"Axel",0);
+		o = new MapObject(m,"Axel",0);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testNegativeStartingHealth() {
-		o = new MapObject(null,"Axel",-1);
+		o = new MapObject(m,"Axel",-1);
 	}
 	
 	@Test
