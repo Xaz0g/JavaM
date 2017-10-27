@@ -5,6 +5,7 @@ import se.su.dsv.inte.map.Map;
 import se.su.dsv.inte.map.Tile;
 import se.su.dsv.inte.map.objects.EntityObject;
 import se.su.dsv.inte.map.objects.MapObject;
+import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class EntityController extends MapObjectController {
 
@@ -27,10 +28,16 @@ public class EntityController extends MapObjectController {
 			if (checkIfValidMove(moveRow,moveColumn)) {
 				Tile newTile = getMap().getTile(moveRow, moveColumn);
 				if (newTile.isOccupied()) {
-					
+					interactWithObject(newTile.getMapObject());
+					if(!newTile.isOccupied()) {
+						getMap().moveMapObject(currentRow, currentColumn, moveRow, moveColumn);
+						setPosition(moveRow,moveColumn);
+						return true;
+					}
 				} else {
 					getMap().moveMapObject(currentRow, currentColumn, moveRow, moveColumn);
 					setPosition(moveRow,moveColumn);
+					return true;
 				}
 			}
 		}
@@ -44,7 +51,9 @@ public class EntityController extends MapObjectController {
 	}
 	
 	private void interactWithObject(MapObject o) {
-		
+		if(o instanceof PlayerCharacter) {
+			((EntityObject)getObject()).attack(o);
+		}
 	}
 
 	private boolean canMove() {
