@@ -14,7 +14,7 @@ public class PlayerCharacterTest {
 	PlayerCharacter p;
 	private Inventory i = new Inventory(3);
 	private String name = "Marie";
-	private int health = 100, movePoints = 1, attack = 10;
+	private int health = 100, movePoints = 2, attack = 10;
 	private Item item, item1, item2;
 	
 	@Test
@@ -56,6 +56,51 @@ public class PlayerCharacterTest {
 	}
 	
 	@Test
+	public void validDecreaseAttackBonus() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		item = new Weapon("Weapon", 2, 3, 4, 5);
+		p.decreaseAttackBonus(item);
+		assertEquals((attack - item.getAttackBonus()), p.getAttack(), 0.001);
+	}
+	
+	@Test
+	public void validDecreaseAttackBelowZeroResultsInZero() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		int greaterThanAttack = 11;
+		item = new Weapon("Weapon", 2, greaterThanAttack, 4, 5);
+		p.decreaseAttackBonus(item);
+		assertEquals(0, p.getAttack(), 0.001);
+	}
+	
+	@Test
+	public void validDecreaseArmorBonus() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		double armorBig = 6.0;
+		double armorSmall = 5.0;
+		item = new Weapon("Weapon", 2, 3, 4, armorSmall);
+		p.setArmor(armorBig);
+		p.decreaseArmorBonus(item);
+		assertEquals((armorBig - armorSmall) , p.getArmor(), 0.001);
+	}
+	
+	@Test
+	public void validDecreaseArmorBelowZeroResultsInZero() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		item = new Weapon("Weapon", 2, 3, 4, 5);
+		p.decreaseArmorBonus(item);
+		assertEquals(0, p.getArmor(), 0.001);
+	}
+	
+	@Test
+	public void validDecreaseMovementBonus() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		int smallMove = 1;
+		item = new Weapon("Weapon", 2, 3, smallMove, 5);
+		p.decreaseMovementBonus(item);
+		assertEquals(movePoints - smallMove , p.getMovementPoints());
+	}
+	
+	@Test
 	public void validLookAtInventory() {
 		p = new PlayerCharacter(null,name, health, movePoints, attack);
 		item1 = new Weapon("Weapon", 2, 3, 4, 5);
@@ -65,4 +110,22 @@ public class PlayerCharacterTest {
 		
 		
 	}
+	
+	@Test
+	public void checkItemTest() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		item = new Weapon("Weapon", 2, 3, 4, 5);
+		item1 = new Weapon("Weapon", 2, 3, 4, 5);
+		item2 = new Weapon("Armor", 2, 3, 4, 5);
+		
+		p.addToInventory(item);
+		p.addToInventory(item1);
+		p.addToInventory(item2);
+		
+		assertEquals(item, p.checkItem(0));
+		assertEquals(item1, p.checkItem(1));
+		assertEquals(item2, p.checkItem(2));
+		
+	}
+	
 }

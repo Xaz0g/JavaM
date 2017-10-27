@@ -98,7 +98,11 @@ public class PlayerCharacter extends EntityObject{
 	protected void decreaseAttackBonus(Item i) {
 		double attack = getAttack();
 		
-		attack = attack - i.getAttackBonus();
+		if(attack - i.getAttackBonus() < 0) {
+			attack = 0;
+		}else {
+			attack = attack - i.getAttackBonus();
+		}
 		
 		super.setAttack(attack);
 	}
@@ -107,7 +111,11 @@ public class PlayerCharacter extends EntityObject{
 		
 		double armor = getArmor();
 		
-		armor = armor - i.getArmorBonus();
+		if(armor - i.getArmorBonus() < 0) {
+			armor = 0;
+		}else {
+			armor = armor - i.getArmorBonus();
+		}
 		
 		super.setArmor(armor);
 	}
@@ -116,7 +124,11 @@ public class PlayerCharacter extends EntityObject{
 		
 		int movementPoints = getMovementPoints();
 		
-		movementPoints = movementPoints - i.getMovementBonus();
+		if(movementPoints - i.getMovementBonus() < 0) {
+			movementPoints = 0;
+		}else {
+			movementPoints = movementPoints - i.getMovementBonus();
+		}
 		
 		super.setMovementPoints(movementPoints);
 	}
