@@ -17,7 +17,7 @@ public class PlayerCharacter extends EntityObject{
 	}
 
 	
-	protected void loot(ContainerObject cO) {
+	public void loot(ContainerObject cO) {
 		if(cO.getStoredItems().size() > inventory.getSize()) { // Antalet platser totalt i ContainerObject är fler än antalet platser totalt i inventory
 			ArrayList<Item> temp = new ArrayList<Item>();
 					temp.addAll(cO.getStoredItems().subList(0, inventory.getSize()));
