@@ -29,7 +29,7 @@ public class EntityController extends MapObjectController {
 				Tile newTile = getMap().getTile(moveRow, moveColumn);
 				if (newTile.isOccupied()) {
 					interactWithObject(newTile.getMapObject());
-					if(!newTile.isOccupied()) {
+					if(!getObject().isDestroyed() && !newTile.isOccupied()) {
 						getMap().moveMapObject(currentRow, currentColumn, moveRow, moveColumn);
 						setPosition(moveRow,moveColumn);
 						return true;
@@ -50,7 +50,7 @@ public class EntityController extends MapObjectController {
 				&& column >= 0 && column < getMap().getWidth();
 	}
 	
-	private void interactWithObject(MapObject o) {
+	protected void interactWithObject(MapObject o) {
 		if(o instanceof PlayerCharacter) {
 			((EntityObject)getObject()).attack(o);
 		}
