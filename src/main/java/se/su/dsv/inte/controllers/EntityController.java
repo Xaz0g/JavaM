@@ -4,6 +4,7 @@ import se.su.dsv.inte.map.Direction;
 import se.su.dsv.inte.map.Map;
 import se.su.dsv.inte.map.Tile;
 import se.su.dsv.inte.map.objects.EntityObject;
+import se.su.dsv.inte.map.objects.MapObject;
 
 public class EntityController extends MapObjectController {
 
@@ -26,9 +27,10 @@ public class EntityController extends MapObjectController {
 			if (checkIfValidMove(moveRow,moveColumn)) {
 				Tile newTile = getMap().getTile(moveRow, moveColumn);
 				if (newTile.isOccupied()) {
-
+					
 				} else {
 					getMap().moveMapObject(currentRow, currentColumn, moveRow, moveColumn);
+					setPosition(moveRow,moveColumn);
 				}
 			}
 		}
@@ -39,6 +41,10 @@ public class EntityController extends MapObjectController {
 	private boolean checkIfValidMove(int row, int column) {
 		return row >= 0 && row < getMap().getHeight() 
 				&& column >= 0 && column < getMap().getWidth();
+	}
+	
+	private void interactWithObject(MapObject o) {
+		
 	}
 
 	private boolean canMove() {
