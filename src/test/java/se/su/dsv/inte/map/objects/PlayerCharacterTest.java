@@ -101,6 +101,14 @@ public class PlayerCharacterTest {
 	}
 	
 	@Test
+	public void validDecreaseMovementBelowZeroResultsInZero() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		item = new Weapon("Weapon", 2, 3, 4, 5);
+		p.decreaseMovementBonus(item);
+		assertEquals(0, p.getMovementPoints(), 0.001);
+	}
+	
+	@Test
 	public void validLookAtInventory() {
 		p = new PlayerCharacter(null,name, health, movePoints, attack);
 		item1 = new Weapon("Weapon", 2, 3, 4, 5);
