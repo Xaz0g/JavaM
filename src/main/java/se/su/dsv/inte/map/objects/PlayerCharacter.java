@@ -18,26 +18,39 @@ public class PlayerCharacter extends EntityObject{
 
 	
 	public void loot(ContainerObject cO) {
-		if(cO.getStoredItems().size() > inventory.getSize()) {
+		if(cO.getStoredItems().size() > inventory.getSize()) { // Antalet platser totalt i ContainerObject är fler än antalet platser totalt i inventory
 			ArrayList<Item> temp = new ArrayList<Item>();
 					temp.addAll(cO.getStoredItems().subList(0, inventory.getSize()));
 					
 					for(int i = 0; i < inventory.getSize(); i++) {
-						cO.getStoredItems().set(i, checkItem(i)); 	// kopiera över items i Inventory till motsvarande plats i ContainerObject
+						cO.getStoredItems().set(i, checkItem(i)); 	// kopiera över items i Inventory, lägg på motsvarande plats i ContainerObject
 					}
-					inventory = new Inventory(temp);
-		}else {
+					
+					//infört nedanstående istället för --> inventory = new Inventory(temp);	//ändrar inga stats
+					
+					for(int i = 0; i< inventory.getIndex(); i++) {
+						removeItemFromInventory(inventory.checkItem(i));
+					}
+					
+					for(Item item : temp) {
+						addToInventory(item);
+					}
+					
+		}else {													// Antalet platser totalt i ContainerObject är färre än antalet platser totalt i inventory
+			
 			if(cO.getStoredItems().size() > inventory.getSpaceLeft()) { //Om antalet lediga platser i inventory är färre än sakerna i loot
 				int max = inventory.getSpaceLeft();
 				
 				for(int i = 0; i < max; i ++) {
-					inventory.add(cO.getStoredItems().remove(0));
+					addToInventory(cO.getStoredItems().remove(0));
+					//inventory.add(cO.getStoredItems().remove(0));	//ändrar inga stats
 				}
 				
 			}else {	//Om antalet lediga platser i inventory är fler än sakerna i loot
 				
 				for(Item item : cO.getStoredItems()) {
-					inventory.add(item);
+					addToInventory(item);
+					//inventory.add(item);	//ändrar inga stats
 				}
 				
 			}

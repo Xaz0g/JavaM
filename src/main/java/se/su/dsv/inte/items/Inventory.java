@@ -18,14 +18,14 @@ public class Inventory{
 		size = i;
 	}
 	
-	public Inventory(ArrayList<Item> list) {
-		if(list.size() < 1)
-				throw new IllegalArgumentException();
-		
-		container = list.toArray(new Item[0]);
-		setWeight();
-		size = list.size();
-	}
+//	public Inventory(ArrayList<Item> list) {		//borttagen p.g.a. missar att ändra stats.
+//		if(list.size() < 1)
+//				throw new IllegalArgumentException();
+//		
+//		container = list.toArray(new Item[0]);
+//		setWeight();
+//		size = list.size();
+//	}
 	
 	private void setWeight(){
 		for(Item i: container){
