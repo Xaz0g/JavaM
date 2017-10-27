@@ -136,4 +136,27 @@ public class PlayerCharacterTest {
 		
 	}
 	
+	@Test
+	public void validRemoveItemFromInventory() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		
+		double weight = 1;
+		double attackBonus = 1;
+		int movementBonus = 1;
+		double armorBonus = 1;
+		
+		item = new Weapon("Weapon", weight, attackBonus, movementBonus, armorBonus);
+		p.addToInventory(item);
+		
+		p.removeItemFromInventory(item);
+		/*h =100;
+		m= 2;
+		att= 10;
+		arm= 0;
+		*/
+		assertEquals(2, p.getMovementPoints(), 0.001);
+		assertEquals(10, p.getAttack(), 0.001);
+		assertEquals(0, p.getArmor(), 0.001);
+		assertNull(p.checkItem(0));
+	} 
 }

@@ -150,7 +150,7 @@ public class PlayerCharacter extends EntityObject{
 //
 //	}
 
-	protected void removeItemFromInventory(Item i) {
+	protected void removeItemFromInventory(Item i) {	//Ger ingen output på null-object
 		
 		if(inventory.remove(i)){
 			decreaseAttackBonus(i);

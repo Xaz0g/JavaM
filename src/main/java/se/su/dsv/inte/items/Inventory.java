@@ -74,6 +74,9 @@ public class Inventory{
 	}
 	
 	public boolean remove(Item item) {
+		if(item == null)
+			return false;
+		
 		for(int i = nextItemIndex -1; i >= 0; i--) {
 			if(container[i].equals(item)) {
 				return removeItem(i);
