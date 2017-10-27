@@ -4,10 +4,9 @@ import se.su.dsv.inte.controllers.EntityController;
 import se.su.dsv.inte.map.Map;
 
 public class EntityObject extends MapObject{
-	
+
 	private int movementPoints;
-	private double attack;
-	private double armor;
+	private double attack, armor;
 	
 	
 	public EntityObject(Map map, String name, double startingHealth, int startingMovementPoints, double startingAttack) {
@@ -18,6 +17,11 @@ public class EntityObject extends MapObject{
 	}
 	
 	public void attack(MapObject o) {
+
+		// Kontrollerar om objektet som passas med finns, sen om
+		// det är av typen EntityObject vilket säger om det är en fiende
+		// eller något annat objekt i.e kista, träd eller sten.
+
 		if(o == null) {
 			throw new IllegalArgumentException("Cannot attack null!");
 		}

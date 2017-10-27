@@ -47,7 +47,7 @@ public class ContainerObjectTest {
 	@Test
 	public void validEmptyList() {
 		co = new ContainerObject(null,name, health, item1, item2, item3);
-		co.emptyListStoredItems();
+		co.emptyListOfStoredItems();
 		assertTrue(co.getStoredItems().isEmpty());
 		
 	}

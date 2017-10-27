@@ -6,11 +6,9 @@ import se.su.dsv.inte.map.Terrain;
 public class JavaM {
 	
 	public static void main(String[] args) {
+		Map m = new Map(25,25);
 		
-		int i = 0;
-		while(i < 10) {
-			System.out.println(++i);
-		}
-		
+		m.setMapTiles(Terrain.Grass);
+		m.printMap();
 	}
 }

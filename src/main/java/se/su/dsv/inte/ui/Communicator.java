@@ -61,6 +61,8 @@ public class Communicator {
         return("You've killed " + enemy.getName());
     }
 
-
+    public String youreNowAttacking(EntityObject enemy){
+        return ("You're now attacking " + enemy.getName() + "!");
+    }
 
 }
