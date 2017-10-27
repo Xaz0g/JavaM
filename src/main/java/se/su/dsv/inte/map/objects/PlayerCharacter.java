@@ -17,7 +17,7 @@ public class PlayerCharacter extends EntityObject{
 	}
 
 	
-	public void loot(ContainerObject cO) {
+	protected void loot(ContainerObject cO) {
 		if(cO.getStoredItems().size() > inventory.getSize()) { // Antalet platser totalt i ContainerObject är fler än antalet platser totalt i inventory
 			ArrayList<Item> temp = new ArrayList<Item>();
 					temp.addAll(cO.getStoredItems().subList(0, inventory.getSize()));
@@ -63,11 +63,11 @@ public class PlayerCharacter extends EntityObject{
 //		return inventory;
 //	}
 	
-	public Item checkItem(int i) {
+	protected Item checkItem(int i) {
 		return inventory.checkItem(i);
 	}
 
-	public void increaseAttackBonus(Item i) {
+	protected void increaseAttackBonus(Item i) {
 
 		double attack = getAttack();
 		
@@ -76,7 +76,7 @@ public class PlayerCharacter extends EntityObject{
 		super.setAttack(attack);
 	}
 	
-	public void increaseArmorBonus(Item i) {
+	protected void increaseArmorBonus(Item i) {
 
 		double armor = getArmor();
 		
@@ -86,7 +86,7 @@ public class PlayerCharacter extends EntityObject{
 		
 	}
 	
-	public void increaseMovementBonus(Item i) {
+	protected void increaseMovementBonus(Item i) {
 
 		int movementPoints = getMovementPoints();
 		
@@ -95,7 +95,7 @@ public class PlayerCharacter extends EntityObject{
 		super.setMovementPoints(movementPoints);
 	}
 
-	private void decreaseAttackBonus(Item i) {
+	protected void decreaseAttackBonus(Item i) {
 		double attack = getAttack();
 		
 		attack = attack - i.getAttackBonus();
@@ -103,7 +103,7 @@ public class PlayerCharacter extends EntityObject{
 		super.setAttack(attack);
 	}
 	
-	private void decreaseArmorBonus(Item i) {
+	protected void decreaseArmorBonus(Item i) {
 		
 		double armor = getArmor();
 		
@@ -112,7 +112,7 @@ public class PlayerCharacter extends EntityObject{
 		super.setArmor(armor);
 	}
 	
-	private void decreaseMovementBonus(Item i) {
+	protected void decreaseMovementBonus(Item i) {
 		
 		int movementPoints = getMovementPoints();
 		
@@ -121,7 +121,7 @@ public class PlayerCharacter extends EntityObject{
 		super.setMovementPoints(movementPoints);
 	}
 
-	public void addToInventory(Item i) {
+	protected void addToInventory(Item i) {
 		
 		inventory.add(i);
 		
@@ -138,7 +138,7 @@ public class PlayerCharacter extends EntityObject{
 //
 //	}
 
-	public void removeItemFromInventory(Item i) {
+	protected void removeItemFromInventory(Item i) {
 		
 		if(inventory.remove(i)){
 			decreaseAttackBonus(i);
