@@ -79,7 +79,7 @@ public class MapEntityTest {
 	@Test
 	public void validSetTilePosition() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new Tile(Terrain.Grass);
+		t = new Tile(Terrain.GRASS);
 		m.setTile(t, 2,2);
 		assertEquals(t,m.getTile(2,2));
 	}
@@ -87,7 +87,7 @@ public class MapEntityTest {
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileRowNegative() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new Tile(Terrain.Grass);
+		t = new Tile(Terrain.GRASS);
 		m.setTile(t, NEGATIVE, VALID_COLUMN);
 
 	}
@@ -95,7 +95,7 @@ public class MapEntityTest {
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileColumnNegative() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new Tile(Terrain.Grass);
+		t = new Tile(Terrain.GRASS);
 		m.setTile(t, VALID_ROW, NEGATIVE);
 
 	}
@@ -103,7 +103,7 @@ public class MapEntityTest {
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileRowMax() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new Tile(Terrain.Grass);
+		t = new Tile(Terrain.GRASS);
 		m.setTile(t, m.getHeight(), VALID_COLUMN);
 
 	}
@@ -111,7 +111,7 @@ public class MapEntityTest {
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void invalidSetTileColumnMax() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		t = new Tile(Terrain.Grass);
+		t = new Tile(Terrain.GRASS);
 		m.setTile(t, VALID_ROW, m.getWidth());
 	}
 
@@ -126,7 +126,7 @@ public class MapEntityTest {
 	@Test
 	public void removeObjectFromMap() {
 		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-		m.setMapTiles(Terrain.Grass);
+		m.setMapTiles(Terrain.GRASS);
 		MapObject o = new MapObject(m,"test",10);
 		m.placeMapObject(o, 10, 10);
 		m.removeMapObject(o);
@@ -142,7 +142,7 @@ public class MapEntityTest {
 //	@Test(expected = IllegalArgumentException.class)
 //	public void removeNotOnMap() {
 //		m = new Map(VALID_HEIGHT,VALID_WIDTH);
-//		m.setMapTiles(Terrain.Grass);
+//		m.setMapTiles(Terrain.GRASS);
 //		MapObject o = new MapObject(m,"test",10);
 //		m.removeMapObject(o);
 //	}

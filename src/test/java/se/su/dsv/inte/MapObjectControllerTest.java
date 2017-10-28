@@ -14,7 +14,7 @@ public class MapObjectControllerTest {
 	private MapObjectController c = o.getController();
 	
 	{
-		testMap.setMapTiles(Terrain.Grass);
+		testMap.setMapTiles(Terrain.GRASS);
 		testMap.placeMapObject(o, 5, 5);
 	}
 	
