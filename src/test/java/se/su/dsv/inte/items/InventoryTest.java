@@ -61,6 +61,16 @@ public class InventoryTest {
 		assertEquals(null, validContainer.checkItem(0));
 	}
 	
+	@Test (expected = NullPointerException.class)
+	public void testRemoveNullItem() {
+		assertEquals(false, validContainer.remove(null));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testRemoveFromEmptySpace() {
+		assertEquals(true, validContainer.removeItem(0));
+	}
+	
 	@Test	//Allt som ligger på högre index ska flyttas efter remove()
 	public void testCheckMiddleAfterRemove() {
 		for(int i = 0; i < VALID_SIZE; i++) {
@@ -81,6 +91,7 @@ public class InventoryTest {
 		int middle = 5;
 		
 		validContainer.removeItem(middle);
+
 		assertEquals(null, validContainer.checkItem(VALID_SIZE -1));
 	}
 	

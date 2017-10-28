@@ -17,45 +17,69 @@ public class PlayerCharacter extends EntityObject{
 	}
 
 	
-	public void loot(ContainerObject cO) {
-		if(cO.getStoredItems().size() > inventory.getSize()) { // Antalet platser totalt i ContainerObject är fler än antalet platser totalt i inventory
-			ArrayList<Item> temp = new ArrayList<Item>();
-					temp.addAll(cO.getStoredItems().subList(0, inventory.getSize()));
-					
-					for(int i = 0; i < inventory.getSize(); i++) {
-						cO.getStoredItems().set(i, checkItem(i)); 	// kopiera över items i Inventory, lägg på motsvarande plats i ContainerObject
-					}
-					
-					//infört nedanstående istället för --> inventory = new Inventory(temp);	//ändrar inga stats
-					
-					for(int i = 0; i< inventory.getIndex(); i++) {
-						removeItemFromInventory(inventory.checkItem(i));
-					}
-					
-					for(Item item : temp) {
-						addToInventory(item);
-					}
-					
-		}else {													// Antalet platser totalt i ContainerObject är färre än antalet platser totalt i inventory
-			
-			if(cO.getStoredItems().size() > inventory.getSpaceLeft()) { //Om antalet lediga platser i inventory är färre än sakerna i loot
-				int max = inventory.getSpaceLeft();
-				
-				for(int i = 0; i < max; i ++) {
-					addToInventory(cO.getStoredItems().remove(0));
-					//inventory.add(cO.getStoredItems().remove(0));	//ändrar inga stats
-				}
-				
-			}else {	//Om antalet lediga platser i inventory är fler än sakerna i loot
-				
-				for(Item item : cO.getStoredItems()) {
-					addToInventory(item);
-					//inventory.add(item);	//ändrar inga stats
-				}
-				
+	public void loot(ContainerObject con) {
+		if(con == null)
+			throw new NullPointerException();
+		
+		if(con.size() <= inventory.getSpaceLeft())
+		{
+			for(Item item : con.getStoredItems()) {
+				inventory.add(item);
 			}
+		}else {	// antalet object i con är fler än som får plats i inventory
+			
+//			for(int i = 0; i < inventory.getIndex(); i++) {
+//				inventory.setItem(i, con.getStoredItems().set(i, inventory.checkItem(i)));
+//			}
+//			
+//			ArrayList<Item> temp = new ArrayList<Item>();
+//					temp.addAll(con.getStoredItems().subList(inventory.getIndex(), (inventory.getLength() -1)));
+//			
+//			for(int i = 0; i< inventory.getSpaceLeft(); i++) {
+//				inventory.add(temp.get(i));
+//			}
 		}
 	}
+	
+//	public void loot(ContainerObject cO) {
+//		if(cO.getStoredItems().size() > inventory.getSize()) { // Antalet platser totalt i ContainerObject är fler än antalet platser totalt i inventory
+//			ArrayList<Item> temp = new ArrayList<Item>();
+//					temp.addAll(cO.getStoredItems().subList(0, inventory.getSize()));
+//					
+//					for(int i = 0; i < inventory.getSize(); i++) {
+//						cO.getStoredItems().set(i, checkItem(i)); 	// kopiera över items i Inventory, lägg på motsvarande plats i ContainerObject
+//					}
+//					
+//					//infört nedanstående istället för --> inventory = new Inventory(temp);	//ändrar inga stats
+//					
+//					for(int i = 0; i< inventory.getIndex(); i++) {
+//						removeItemFromInventory(checkItem(i));	//kör remove() som i sin tur kör adaptArray();
+//					}
+//					
+//					for(Item item : temp) {
+//						addToInventory(item);
+//					}
+//					
+//		}else {													// Antalet platser totalt i ContainerObject är färre än antalet platser totalt i inventory
+//			
+//			if(cO.getStoredItems().size() > inventory.getSpaceLeft()) { //Om antalet lediga platser i inventory är färre än sakerna i loot
+//				int max = inventory.getSpaceLeft();
+//				
+//				for(int i = 0; i < max; i ++) {
+//					addToInventory(cO.getStoredItems().remove(0));
+//					//inventory.add(cO.getStoredItems().remove(0));	//ändrar inga stats
+//				}
+//				
+//			}else {	//Om antalet lediga platser i inventory är fler än sakerna i loot
+//				
+//				for(Item item : cO.getStoredItems()) {
+//					addToInventory(item);
+//					//inventory.add(item);	//ändrar inga stats
+//				}
+//				
+//			}
+//		}
+//	}
 
 
 //	public Inventory getInventory() {
@@ -135,23 +159,21 @@ public class PlayerCharacter extends EntityObject{
 
 	protected void addToInventory(Item i) {
 		
-		inventory.add(i);
-		
-		increaseAttackBonus(i);
-		
-		increaseArmorBonus(i);
-		
-		increaseMovementBonus(i);
-		
-
+		if(inventory.add(i)) {
+			
+			increaseAttackBonus(i);
+			
+			increaseArmorBonus(i);
+			
+			increaseMovementBonus(i);
+		}
 	}
 
 //	public void lookAtItemInInventory() {
 //
 //	}
 
-	protected void removeItemFromInventory(Item i) {	//Ger ingen output på null-object
-		
+	protected void removeItemFromInventory(Item i) {
 		if(inventory.remove(i)){
 			decreaseAttackBonus(i);
 			

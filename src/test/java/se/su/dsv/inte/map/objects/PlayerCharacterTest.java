@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import se.su.dsv.inte.items.Armor;
 import se.su.dsv.inte.items.Inventory;
 import se.su.dsv.inte.items.Item;
 import se.su.dsv.inte.items.Weapon;
@@ -16,6 +17,27 @@ public class PlayerCharacterTest {
 	private String name = "Marie";
 	private int health = 100, movePoints = 2, attack = 10;
 	private Item item, item1, item2;
+	
+	private Weapon w0= new Weapon("weapon0", 1,1,1,1), 
+			w1 =new Weapon("weapon1", 1,1,1,1),
+			w2 = new Weapon("weapon2", 1,1,1,1),
+			w3 = new Weapon("weapon3", 1,1,1,1),
+			w4 = new Weapon("weapon4", 1,1,1,1),
+			w5 = new Weapon("weapon5", 1,1,1,1),
+			w6 = new Weapon("weapon6", 1,1,1,1),
+			w7 = new Weapon("weapon7", 1,1,1,1),
+			w8 = new Weapon("weapon8", 1,1,1,1),
+			w9 = new Weapon("weapon9", 1,1,1,1),
+			w10 = new Weapon("weapon10", 1,1,1,1),
+			w11 = new Weapon("weapon11", 1,1,1,1),
+			w12 = new Weapon("weapon12", 1,1,1,1),
+			w13 = new Weapon("weapon13", 1,1,1,1),
+			w14 = new Weapon("weapon14", 1,1,1,1),
+			w15 = new Weapon("weapon15", 1,1,1,1);
+			
+	private Item[] weapons = {w0, w1, w2, w3, w4,
+			w5, w6, w7, w8, w9, w10, w11, w12,
+			w13, w14, w15};
 	
 	@Test
 	public void testValidConstructor() {
@@ -159,4 +181,66 @@ public class PlayerCharacterTest {
 		assertEquals(0, p.getArmor(), 0.001);
 		assertNull(p.checkItem(0));
 	} 
+	
+	@Test
+	public void validLootWhenSpaceAvailable() {
+		p = new PlayerCharacter(null,name, health, movePoints, attack);
+		
+		ContainerObject con = new ContainerObject(null, "Chest", 100, weapons);
+		
+		p.loot(con);
+		assertEquals(w0 , p.checkItem(0));
+		assertEquals(w15 , p.checkItem(15));
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void lootNullContainer() {
+		p.loot(null);
+	}
+	
+//	@Test
+//	public void lootMoreItemsThanInventoryFreeSpace() {
+//		p = new PlayerCharacter(null,name, health, movePoints, attack);
+//		ContainerObject con = new ContainerObject(null, "Chest", 100, weapons);
+//		item = new Armor("arm0", 1,1,1,1);
+//		item1 = new Armor("arm1", 1,1,1,1);
+//		item2 = new Armor("arm2", 1,1,1,1);
+//		
+//		p.addToInventory(item);
+//		p.addToInventory(item1);
+//		p.addToInventory(item2);
+//		
+//		p.loot(con);
+//		assertEquals(w0 , p.checkItem(0));
+//		assertEquals(w15 , p.checkItem(15));
+//		//assertEquals();	item - item2 finns i con
+//	}
+	
+//	@Test
+//	public void validLoot() {
+//		int greaterThanStandardInventory = 17;	//ställer till problem när större än inv
+//		Item[] items = new Item[greaterThanStandardInventory];
+//		
+//		for(int i = 0; i < greaterThanStandardInventory; i++) {
+//			//String name, double weight, double attackBonus, int movementBonus, double armorBonus
+//			items[i] = new Weapon("weapon: "+ i, 1, 1, 1, 1);
+//		}
+//		
+//		ContainerObject con = new ContainerObject(null, "Chest", 100, items);
+//		/*h =100;
+//		m= 2;
+//		att= 10;
+//		arm= 0;
+//		*/
+//		p = new PlayerCharacter(null,name, health, movePoints, attack);
+//		
+//		for(int j = 0; j < 16; j++) {
+//			//String name, double weight, double attackBonus, int movementBonus, double armorBonus
+//			p.addToInventory(new Armor("armor: "+ j, 1, 1, 1, 1));
+//		}
+//			
+//		
+//		p.loot(con);
+//		assertEquals("weapon: 0", p.checkItem(0).getName());
+//	}	// inv.checkItem(2).getName()
 }

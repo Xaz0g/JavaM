@@ -17,7 +17,7 @@ public class ContainerObject extends MapObject {
 //			throw new NullPointerException();
 //		}else {
 
-			for(Item i: items) {
+			for(Item i: items){
 				if(i == null) {
 					throw new IllegalArgumentException();
 				}else {
@@ -26,6 +26,10 @@ public class ContainerObject extends MapObject {
 			}
 
 //		}
+	}
+	
+	public int size() {
+		return storedItems.size();
 	}
 
 	public ArrayList<Item> getStoredItems(){
