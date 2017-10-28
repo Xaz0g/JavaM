@@ -2,6 +2,7 @@ package se.su.dsv.inte.map.objects;
 
 import java.util.ArrayList;
 
+import se.su.dsv.inte.controllers.PlayerController;
 import se.su.dsv.inte.items.Inventory;
 import se.su.dsv.inte.items.Item;
 import se.su.dsv.inte.map.Map;
@@ -13,6 +14,7 @@ public class PlayerCharacter extends EntityObject{
 
 	public PlayerCharacter(Map map, String name, double startingHealth, int startingMovePoints, double startingAttack) {
 		super(map,name,startingHealth,startingMovePoints,startingAttack);
+		setController(new PlayerController(map,this));
 		this.inventory = new Inventory(16);
 	}
 
