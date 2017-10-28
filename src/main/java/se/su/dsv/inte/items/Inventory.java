@@ -18,14 +18,14 @@ public class Inventory{
 		size = i;
 	}
 	
-	public Inventory(ArrayList<Item> list) {
-		if(list.size() < 1)
-				throw new IllegalArgumentException();
-		
-		container = list.toArray(new Item[0]);
-		setWeight();
-		size = list.size();
-	}
+//	public Inventory(ArrayList<Item> list) {		//borttagen p.g.a. missar att ändra stats.
+//		if(list.size() < 1)
+//				throw new IllegalArgumentException();
+//		
+//		container = list.toArray(new Item[0]);
+//		setWeight();
+//		size = list.size();
+//	}
 	
 	private void setWeight(){
 		for(Item i: container){
@@ -38,6 +38,10 @@ public class Inventory{
 	
 	public int getSize() {
 		return size;
+	}
+	
+	public int getLength() {
+		return container.length;
 	}
 	
 	public int getSpaceLeft() {
@@ -53,29 +57,57 @@ public class Inventory{
 	}
 
 	public boolean add(Item testItem) {
-		container[nextItemIndex] = testItem;
+		if(testItem == null)
+			throw new NullPointerException();
 		
-		if(container[nextItemIndex].equals(testItem)) {
+		if(nextItemIndex < container.length) {
+			container[nextItemIndex] = testItem;
 			nextItemIndex++;
 			return true;
 		}
-			
-		
 		return false;
+		
+	}
+	
+	public void setItem(int index, Item item) {
+		if(item == null)
+			throw new NullPointerException();
+		
+		if(index < nextItemIndex)
+			container[index] = item;
 	}
 
+
 	public boolean removeItem(int i) {
-		container[i] = null;
-		nextItemIndex--;
+		if(i <0 || i >= container.length)
+			throw new ArrayIndexOutOfBoundsException();
+		if(i >= nextItemIndex)
+			throw new IllegalArgumentException();
 		
-		adaptArray(i);
 		
-		return container[i] == null ? true : false;
+		int lastItemIndex = nextItemIndex -1;
+		
+		if(i == lastItemIndex){
+			container[i] = null;
+			nextItemIndex--;
+			
+		}else{
+				container[i] = null;
+				
+				adaptArray(i);
+				
+				nextItemIndex--;
+		}
+		
+		return container[i] == null;
 	}
 	
 	public boolean remove(Item item) {
+		if(item == null)
+			throw new NullPointerException();
+		
 		for(int i = nextItemIndex -1; i >= 0; i--) {
-			if(container[i].equals(item)) {
+			if(container[i] != null && container[i].equals(item)) {
 				return removeItem(i);
 			}
 		}
@@ -84,21 +116,22 @@ public class Inventory{
 
 	private void adaptArray(int i) {
 		Item[] temp = new Item[container.length - (i +1)];
+		int tempCount = 0;
+		int lastItemIndex = nextItemIndex -1;
 		
-		int tempCounter = 0;
-		
-		for(int big = i +1; big < container.length; big++) {
-			temp[tempCounter] = container[big];
-			tempCounter++;
+		for(int j = i; j < lastItemIndex; j++) {	//kopiera Items efter index i till temp.
+			temp[tempCount] = container[j+1];
+			tempCount++;
 		}
 		
-		tempCounter = 0;
-		for(int small = i; small < (container.length -1); small++) {
-			container[small] = temp [tempCounter];
-			tempCounter++;
+		tempCount = i;
+		
+		for(Item item : temp) {			// kopiera in items från temp ett steg längre bak i container
+			container[tempCount] = item;
+			tempCount++;
 		}
 		
-		container[nextItemIndex] = null;		
+		container[lastItemIndex] = null;	// gör sista itemet till null så att det inte finns två ggr.
 	}
 
 	public Item checkItem(int i) {
