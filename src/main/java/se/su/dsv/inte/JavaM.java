@@ -8,7 +8,7 @@ public class JavaM {
 	public static void main(String[] args) {
 		Map m = new Map(25,25);
 		
-		m.setMapTiles(Terrain.Grass);
+		m.setMapTiles(Terrain.GRASS);
 		m.printMap();
 	}
 }

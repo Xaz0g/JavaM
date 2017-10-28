@@ -21,7 +21,13 @@ public class EntityController extends MapObjectController {
 	}
 
 	public boolean moveOnMap(Direction d) {
+		if(!getMap().onMap(getObject())) {
+			return false;
+		}
 		if (canMove()) {
+			if(d == null) {
+				return false;
+			}
 			int moveRow = currentRow + (d == Direction.NORTH ? -1 : d == Direction.SOUTH ? 1 : 0);
 			int moveColumn = currentColumn + (d == Direction.EAST ? 1 : d == Direction.WEST ? -1 : 0);
 
@@ -32,11 +38,13 @@ public class EntityController extends MapObjectController {
 					if(!getObject().isDestroyed() && !newTile.isOccupied()) {
 						getMap().moveMapObject(currentRow, currentColumn, moveRow, moveColumn);
 						setPosition(moveRow,moveColumn);
+						movesMade++;
 						return true;
 					}
 				} else {
 					getMap().moveMapObject(currentRow, currentColumn, moveRow, moveColumn);
 					setPosition(moveRow,moveColumn);
+					movesMade++;
 					return true;
 				}
 			}

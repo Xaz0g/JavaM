@@ -47,7 +47,7 @@ public class Map{
 		for(int row = 0; row < height; row++){
 			for(int column = 0; column < width; column++) {
 				if(Math.random()< probability)
-					tiles[row][column] = new Tile(Terrain.Water);
+					tiles[row][column] = new Tile(Terrain.WATER);
 			}
 		}
 	}
@@ -69,7 +69,7 @@ public class Map{
 	private void makeLake(int row, int column) {
 		for(int x = row; x < row + 4; x++) { 
 			for(int y = column; y < column + 4; y++) {
-				tiles[x][y] = new Tile(Terrain.Water);
+				tiles[x][y] = new Tile(Terrain.WATER);
 			}
 		}
 	}
@@ -117,6 +117,10 @@ public class Map{
 			tiles[toRow][toColumn].setMapObject(o);
 			objectsOnMap.replace(o, tiles[toRow][toColumn]);
 			tiles[fromRow][fromColumn].setMapObject(null);
+			
+			if(o instanceof EntityObject) {
+				((EntityController)o.getController()).setPosition(toRow,toColumn);
+			}
 		} else {
 			throw new IllegalArgumentException("No MapObject to move!");
 		}
@@ -144,11 +148,15 @@ public class Map{
 		}
 	}
 	
+	public boolean onMap(MapObject o) {
+		return objectsOnMap.containsKey(o);
+	}
+	
 	public void printMap() {
 		for(Tile[] row : tiles) {
 			for(Tile tile : row) {
 				System.out.print(tile.isOccupied() ? "X " :
-						tile.getTerrain() == Terrain.Grass ? "G " : "B ");
+						tile.getTerrain() == Terrain.GRASS ? "G " : "B ");
 			}
 			System.out.println();
 		}

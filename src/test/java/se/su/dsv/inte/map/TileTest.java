@@ -12,7 +12,7 @@ import se.su.dsv.inte.map.objects.PlayerCharacter;
 
 public class TileTest {
 	
-	private Terrain grass = Terrain.Grass;
+	private Terrain grass = Terrain.GRASS;
 	private Inventory i = new Inventory(3);
 	private PlayerCharacter legalPlayer = new PlayerCharacter(null,"Victor", 3.0, 1,10.0);
 	
@@ -31,8 +31,8 @@ public class TileTest {
 	@Test
 	public void testSetLegalTerrain() {
 		Tile t = new Tile(grass);
-		t.setTerrain(Terrain.Water);
-		assertEquals(Terrain.Water, t.getTerrain());
+		t.setTerrain(Terrain.WATER);
+		assertEquals(Terrain.WATER, t.getTerrain());
 	}
 	
 	@Test(expected = NullPointerException.class)
