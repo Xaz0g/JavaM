@@ -139,6 +139,49 @@ public class MapEntityTest {
 		m.removeMapObject(null);
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void moveNonExistantMapObject() {
+		m = new Map(VALID_HEIGHT,VALID_WIDTH);
+		m.setMapTiles(Terrain.GRASS);
+		
+		m.moveMapObject(0, 0, 1, 0);
+	}
+	
+	@Test
+	public void testRandomizedLakes() {
+		m = new Map(VALID_HEIGHT,VALID_WIDTH);
+		m.setMapTiles(Terrain.GRASS);
+		m.randomizedLakes(1, 0);
+		
+		assertEquals(Terrain.WATER,m.getTile(0, 0).getTerrain());
+		assertEquals(Terrain.WATER,m.getTile(5, 5).getTerrain());
+		assertEquals(Terrain.WATER,m.getTile(10, 10).getTerrain());
+		
+	}
+	
+	@Test
+	public void testRandomizedWaterSpots() {
+		m = new Map(VALID_HEIGHT,VALID_WIDTH);
+		m.setMapTiles(Terrain.GRASS);
+		m.randomizeWaterSpots(1);
+		
+		assertEquals(Terrain.WATER,m.getTile(0, 0).getTerrain());
+		assertEquals(Terrain.WATER,m.getTile(5, 5).getTerrain());
+		assertEquals(Terrain.WATER,m.getTile(10, 10).getTerrain());
+		
+	}
+	
+	@Test
+	public void printMap() {
+		m.setMapTiles(Terrain.GRASS);
+		m.printMap();
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void testPrintNullTerrainMap() {
+		m.printMap();
+	}
+	
 //	@Test(expected = IllegalArgumentException.class)
 //	public void removeNotOnMap() {
 //		m = new Map(VALID_HEIGHT,VALID_WIDTH);

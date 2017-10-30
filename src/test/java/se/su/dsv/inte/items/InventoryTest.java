@@ -107,6 +107,55 @@ public class InventoryTest {
 			(false, validContainer.removeItem(11));
 	}
 	
+	@Test
+	public void setWeight() {
+		validContainer.add(testItem);
+		validContainer.setWeight();
+		
+		assertEquals(21, validContainer.getWeight());
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void addNullItem() {
+		validContainer.add(null);
+	}
+	
+	@Test
+	public void addToFullInventory() {
+		
+		for(int i = 0; i <10; i ++) {
+			validContainer.add(testItem);
+		}
+		
+		assertEquals(false, validContainer.add(testItem));
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void setItemToNull() {
+		validContainer.setItem(0,null);
+	}
+	
+	@Test
+	public void setItem() {
+		validContainer.add(new Armor("temp", 1, 1, 1, 1));
+		assertEquals("temp", validContainer.checkItem(0).getName());
+		
+		validContainer.setItem(0, testItem);
+		assertEquals("TestItem", validContainer.checkItem(0).getName());
+		
+		assertEquals(testItem, validContainer.checkItem(0));
+	}
+	
+	@Test
+	public void getLength() {
+		assertEquals(10, validContainer.getLength());
+	}
+	
+	@Test
+	public void getSize() {
+		assertEquals(10, validContainer.getSize());
+	}
+	
 //	@Test
 //	public void testAddToFullInventory(){
 //		Inventory inv = new Inventory(10);

@@ -27,7 +27,7 @@ public class Inventory{
 //		size = list.size();
 //	}
 	
-	private void setWeight(){
+	protected void setWeight(){
 		for(Item i: container){
 			if(i != null)
 			currentWeight += i.getWeight();
@@ -103,8 +103,10 @@ public class Inventory{
 	}
 	
 	public boolean remove(Item item) {
-		if(item == null)
+		if(item == null) {
 			throw new NullPointerException();
+		}
+			
 		
 		for(int i = nextItemIndex -1; i >= 0; i--) {
 			if(container[i] != null && container[i].equals(item)) {

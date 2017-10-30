@@ -52,4 +52,27 @@ public class ContainerObjectTest {
 		
 	}
 	
+	@Test
+	public void takeItemFromContainer() {
+		co = new ContainerObject(null,name, health, item1, item2, item3);
+		
+		assertEquals(item1, co.takeItemFromContainer(0));
+	}
+	
+	@Test(expected= IndexOutOfBoundsException.class)
+	public void takeFromOutsideContainer() {
+		co = new ContainerObject(null,name, health, item1, item2, item3);
+		
+		assertEquals(item1, co.takeItemFromContainer(4));
+	}
+	
+	@Test(expected= AssertionError.class)
+	public void takeNullFromContainer() {
+		co = new ContainerObject(null,name, health, item1, item2, item3);
+		co.getStoredItems().set(0, null);
+		
+		
+		assertEquals(item1, co.takeItemFromContainer(0));
+	}
+	
 }

@@ -12,7 +12,7 @@ public class PlayerController extends EntityController{
 	}
 	
 	@Override
-	protected void interactWithObject(MapObject o) {
+	public void interactWithObject(MapObject o) {
 		if(o instanceof ContainerObject) {
 			((PlayerCharacter)getObject()).loot((ContainerObject) o);
 		} else {

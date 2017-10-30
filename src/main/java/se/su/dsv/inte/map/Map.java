@@ -37,7 +37,7 @@ public class Map{
 		}
 	}
 	
-	private void randomizeWaterSpots(double probability) {
+	protected void randomizeWaterSpots(double probability) {
 
 
 		// Går igenom hela matrisen av Tiles samt med en 50%

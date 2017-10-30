@@ -22,7 +22,7 @@ public class MapObject {
 		this.currentHealth = this.maxHealth;
 	}
 	
-	protected void setController(MapObjectController controller) {
+	public void setController(MapObjectController controller) {
 		this.controller = controller;
 	}
 	

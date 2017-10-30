@@ -47,13 +47,13 @@ public class ContainerObject extends MapObject {
 		storedItems.clear();
 	}
 
-	public void getOneItem() {
-
-	}
-
-	public void lookInContainer() {
-
-	}
+//	public void getOneItem() {
+//
+//	}
+//
+//	public void lookInContainer() {
+//
+//	}
 
 
 	//	toArray
